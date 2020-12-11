@@ -1,7 +1,10 @@
 import 'package:flutter_news_app/app/modules/login/login_module.dart';
 import 'package:flutter_news_app/app/modules/sign_up/sign_up_module.dart';
 import 'package:flutter_news_app/app/modules/start/start_module.dart';
+import 'package:flutter_news_app/app/modules/start/submodules/trending/trending_module.dart';
 import 'package:flutter_news_app/app/shared/constants.dart';
+import 'package:flutter_news_app/app/shared/http/custom_dio.dart';
+import 'package:flutter_news_app/app/shared/repositories/article_repository.dart';
 import 'package:flutter_news_app/app/shared/repositories/user_repository.dart';
 import 'package:flutter_news_app/app/shared/services/user_firebase_auth.dart';
 import 'package:flutter_news_app/app/splash/splash_page.dart';
@@ -17,6 +20,8 @@ class AppModule extends MainModule {
         $AppController,
         Bind((i) => UserFirebaseAuth()),
         Bind((i) => UserRepository()),
+        Bind((i) => ArticleRepository()),
+        Bind((i) => CustomDio()),
       ];
 
   @override
@@ -24,7 +29,8 @@ class AppModule extends MainModule {
         ModularRouter(Modular.initialRoute, child: (_, args) => SplashPage()),
         ModularRouter(AppRoutes.login, module: LoginModule()),
         ModularRouter(AppRoutes.signUp, module: SignUpModule()),
-        ModularRouter(AppRoutes.start, module: StartModule())
+        ModularRouter(AppRoutes.start, module: StartModule()),
+        ModularRouter(AppRoutes.trending, module: TrendingModule())
       ];
 
   @override
