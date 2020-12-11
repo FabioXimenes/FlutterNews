@@ -27,5 +27,14 @@ class AppTheme {
     ),
     iconTheme: IconThemeData(color: kPrimaryColor),
     buttonColor: Colors.black,
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      type: BottomNavigationBarType.fixed,
+      // backgroundColor: Colors.red,
+      selectedItemColor: Colors.deepOrange,
+      // selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+      unselectedItemColor: Colors.black,
+      elevation: 10.0,
+      selectedIconTheme: IconThemeData(size: 30)
+    ),
   );
 }

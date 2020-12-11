@@ -1,5 +1,8 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_news_app/app/modules/start/components/custom_bottom_navigation_bar_widget.dart';
 import 'start_controller.dart';
 
 class StartPage extends StatefulWidget {
@@ -16,18 +19,18 @@ class _StartPageState extends ModularState<StartPage, StartController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.close),
-            onPressed: controller.logout,
-            color: Colors.white,
-          )
+      body: PageView(
+        controller: controller.pageController,
+        children: [
+          Container(color: Colors.red),
+          Container(),
+          Container(color: Colors.red),
+          Container(),
+          Container(color: Colors.red),
         ],
       ),
-      body: Column(
-        children: <Widget>[],
+      bottomNavigationBar: CustomBottomNavigationBarWidget(
+        controller: controller.pageController,
       ),
     );
   }
