@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+
+const Color kPrimaryColor = Colors.black;
+
+class AppTheme {
+  static final ThemeData lightTheme = ThemeData(
+    primaryColor: kPrimaryColor,
+    backgroundColor: Colors.white,
+    accentColor: Colors.deepOrange[300],
+    textTheme: TextTheme(
+      subtitle1: TextStyle(
+          fontSize: 14, fontWeight: FontWeight.normal, color: kPrimaryColor),
+      subtitle2: TextStyle(
+          fontSize: 10, fontWeight: FontWeight.normal, color: kPrimaryColor),
+      headline6: TextStyle(
+          fontSize: 10, fontWeight: FontWeight.bold, color: kPrimaryColor),
+      headline5: TextStyle(
+          fontSize: 14, fontWeight: FontWeight.bold, color: kPrimaryColor),
+      headline4: TextStyle(
+          fontSize: 18, fontWeight: FontWeight.bold, color: kPrimaryColor),
+      headline3: TextStyle(
+          fontSize: 22, fontWeight: FontWeight.bold, color: kPrimaryColor),
+      headline2: TextStyle(
+          fontSize: 26, fontWeight: FontWeight.bold, color: kPrimaryColor),
+      headline1: TextStyle(
+          fontSize: 30, fontWeight: FontWeight.bold, color: kPrimaryColor),
+    ),
+    iconTheme: IconThemeData(color: kPrimaryColor),
+    buttonColor: Colors.black,
+  );
+}
