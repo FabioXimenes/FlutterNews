@@ -26,7 +26,7 @@ class CustomBottomNavigationBarWidget extends StatelessWidget {
               ),
               BottomNavigationBarItem(
                 title: Text('Categories'),
-                icon: Icon(Icons.apps),
+                icon: Icon(EvaIcons.gridOutline),
               ),
               BottomNavigationBarItem(
                 title: Text('Search'),
