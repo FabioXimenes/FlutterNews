@@ -36,6 +36,7 @@ class TodaysReadCardWidget extends StatelessWidget {
             article.title,
             overflow: TextOverflow.ellipsis,
             maxLines: 3,
+            style: Theme.of(context).textTheme.headline5,
           ),
         )
       ],

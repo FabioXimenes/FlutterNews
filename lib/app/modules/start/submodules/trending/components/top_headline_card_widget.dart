@@ -40,7 +40,7 @@ class TopHeadlinePosterWidget extends StatelessWidget {
             height: _size.height * 0.3,
             decoration: BoxDecoration(
               // color: Colors.amberAccent,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(20),
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: NetworkImage(article.urlToImage),

@@ -14,7 +14,7 @@ class TopHeadlinesWidget extends StatelessWidget {
     Size _size = MediaQuery.of(context).size;
     return Container(
       width: _size.width,
-      height: _size.height * 0.45,
+      height: _size.height * 0.43,
       child: PageView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: articles.length,
