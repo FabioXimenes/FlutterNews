@@ -12,7 +12,7 @@ class TopHeadlinePosterWidget extends StatelessWidget {
     Size _size = MediaQuery.of(context).size;
 
     return Container(
-      // padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: EdgeInsets.only(left: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -21,10 +21,18 @@ class TopHeadlinePosterWidget extends StatelessWidget {
             padding: const EdgeInsets.only(right: 15.0),
             child: Text(
               article.title,
-              style: Theme.of(context).textTheme.headline5.copyWith(fontSize: 16),
+              style:
+                  Theme.of(context).textTheme.headline5.copyWith(fontSize: 16),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
+          ),
+          Text(
+            'by ${article.author} for ${article.source.name}',
+            style: Theme.of(context)
+                .textTheme
+                .subtitle1
+                .copyWith(color: Colors.grey[600]),
           ),
           SizedBox(height: 10),
           Container(
@@ -37,13 +45,6 @@ class TopHeadlinePosterWidget extends StatelessWidget {
                 fit: BoxFit.cover,
                 image: NetworkImage(article.urlToImage),
               ),
-              // boxShadow: [
-              //   BoxShadow(
-              //       color: Colors.grey,
-              //       offset: Offset(0, 5),
-              //       spreadRadius: 5,
-              //       blurRadius: 10)
-              // ],
             ),
           ),
         ],

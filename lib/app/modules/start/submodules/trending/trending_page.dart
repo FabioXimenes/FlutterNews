@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_news_app/app/modules/start/components/top_headline_poster_widget.dart';
-import 'package:flutter_news_app/app/modules/start/components/top_headlines_widget.dart';
+import 'package:flutter_news_app/app/modules/start/submodules/trending/components/todays_read_widget.dart';
+import 'package:flutter_news_app/app/modules/start/submodules/trending/components/top_headlines_widget.dart';
 import 'trending_controller.dart';
 
 class TrendingPage extends StatefulWidget {
@@ -29,8 +29,9 @@ class _TrendingPageState
 
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 20, left: 24, right: 24),
-        child: ListView(
+        padding: const EdgeInsets.only(top: 50, left: 24, right: 24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
               'TRENDING',
@@ -46,13 +47,31 @@ class _TrendingPageState
                     ? controller.articlesResponse.status == 'error'
                         ? Text('ERROR')
                         : TopHeadlinesWidget(
-                            articlesResponse: controller.articlesResponse)
+                            articles: controller.articlesResponse.articles)
                     : Center(
                         child: CircularProgressIndicator(),
                       );
               },
             ),
-            Divider(height: 1, thickness: 1, color: Colors.grey,),
+            // Divider(height: 1, thickness: 1, color: Colors.grey),
+            Text(
+              'Today\'s read',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            SizedBox(height: 10),
+            Observer(
+              builder: (_) {
+                return controller.articlesResponse != null
+                    ? controller.articlesResponse.status == 'error'
+                        ? Text('ERROR')
+                        : TodaysReadWidget(
+                            articles: controller.articlesResponse.articles.sublist(1),
+                          )
+                    : Center(
+                        child: CircularProgressIndicator(),
+                      );
+              },
+            )
           ],
         ),
       ),
