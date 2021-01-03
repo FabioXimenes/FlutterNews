@@ -14,8 +14,10 @@ class ArticleModel {
   String publishedAt;
   String content;
 
-  ArticleModel(this.source, this.author, this.title, this.description, this.url, this.urlToImage, this.publishedAt, this.content);
+  ArticleModel(this.source, this.author, this.title, this.description, this.url,
+      this.urlToImage, this.publishedAt, this.content);
 
-  factory ArticleModel.fromJson(Map<String, dynamic> json) => _$ArticleModelFromJson(json);
+  factory ArticleModel.fromJson(Map<String, dynamic> json) =>
+      _$ArticleModelFromJson(json);
   Map<String, dynamic> toJson() => _$ArticleModelToJson(this);
 }

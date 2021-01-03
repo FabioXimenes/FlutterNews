@@ -18,6 +18,6 @@ abstract class _TrendingControllerBase with Store {
   @action
   getTopHeadlineArticles() async {
     articlesResponse = await articleRepository.getTopHeadlines();
-    print(articlesResponse.articles);
+    print(articlesResponse.articles[0].toJson().toString());
   }
 }
