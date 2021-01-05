@@ -33,6 +33,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  url_launcher: 5.7.6
   google_sign_in: ^4.5.1
   json_annotation: ^3.1.0
   firebase_core : ^0.5.0
