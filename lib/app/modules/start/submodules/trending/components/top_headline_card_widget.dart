@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_news_app/app/shared/components/custom_modal_bottom_sheet.dart';
 import 'package:flutter_news_app/app/shared/models/article_model.dart';
 
 class TopHeadlinePosterWidget extends StatelessWidget {
@@ -10,44 +11,53 @@ class TopHeadlinePosterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
-
-    return Container(
-      padding: EdgeInsets.only(left: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            height: 40,
-            padding: const EdgeInsets.only(right: 15.0),
-            child: Text(
-              article.title,
-              style:
-                  Theme.of(context).textTheme.headline5.copyWith(),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
+    return GestureDetector(
+      onTap: () {
+        showModalBottomSheet(
+          barrierColor: Colors.grey.withOpacity(0.8),
+          useRootNavigator: true,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(40),
+              topRight: Radius.circular(40),
             ),
           ),
-          Text(
-            'by ${article.author} for ${article.source.name}',
-            style: Theme.of(context)
-                .textTheme
-                .subtitle1
-                .copyWith(color: Colors.grey[600]),
-          ),
-          SizedBox(height: 10),
-          Container(
-            width: _size.width * 0.85,
-            height: _size.height * 0.3,
-            decoration: BoxDecoration(
-              // color: Colors.amberAccent,
-              borderRadius: BorderRadius.circular(20),
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(article.urlToImage),
+          context: context,
+          builder: (_) {
+            return CustomModalButtonSheet(article: article);
+          },
+        );
+      },
+      child: Container(
+        padding: EdgeInsets.only(left: 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 45,
+              padding: const EdgeInsets.only(right: 15.0),
+              child: Text(
+                article.title,
+                style: Theme.of(context).textTheme.headline4,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
-          ),
-        ],
+            SizedBox(height: 10),
+            Container(
+              width: _size.width * 0.85,
+              height: _size.height * 0.3,
+              decoration: BoxDecoration(
+                // color: Colors.amberAccent,
+                borderRadius: BorderRadius.circular(20),
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(article.urlToImage),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

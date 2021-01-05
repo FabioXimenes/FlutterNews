@@ -73,10 +73,10 @@ flutter:
   assets:
     - assets/images/
   
-  fonts:
-    - family: PlayfairDisplay
+  fonts:    
+    - family: Lora
       fonts:
-        - asset: fonts/PlayfairDisplay-Regular.ttf
+        - asset: fonts/Lora-Regular.ttf
   
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

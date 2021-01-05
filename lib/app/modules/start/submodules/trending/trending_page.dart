@@ -37,10 +37,10 @@ class _TrendingPageState
               'TRENDING',
               style: Theme.of(context)
                   .textTheme
-                  .headline6
+                  .headline5
                   .copyWith(color: Theme.of(context).accentColor, letterSpacing: 2),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 5),
             Observer(
               builder: (_) {
                 return controller.articlesResponse != null
@@ -56,7 +56,7 @@ class _TrendingPageState
             // Divider(height: 1, thickness: 1, color: Colors.grey),
             Text(
               'Today\'s read',
-              style: Theme.of(context).textTheme.headline5,
+              style: Theme.of(context).textTheme.headline4,
             ),
             SizedBox(height: 10),
             Observer(

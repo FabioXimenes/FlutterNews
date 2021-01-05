@@ -4,7 +4,7 @@ const Color kPrimaryColor = Colors.black;
 
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(
-    fontFamily: 'PlayfairDisplay',
+    fontFamily: 'Lora',
     primaryColor: kPrimaryColor,
     backgroundColor: Colors.white,
     accentColor: Colors.deepOrange[300],
