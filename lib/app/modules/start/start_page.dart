@@ -21,6 +21,7 @@ class _StartPageState extends ModularState<StartPage, StartController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
+        physics: NeverScrollableScrollPhysics(),
         controller: controller.pageController,
         children: [
           RouterOutlet(module: TrendingModule()),
