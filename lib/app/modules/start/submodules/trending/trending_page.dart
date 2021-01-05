@@ -37,8 +37,8 @@ class _TrendingPageState
               'TRENDING',
               style: Theme.of(context)
                   .textTheme
-                  .headline5
-                  .copyWith(color: Theme.of(context).accentColor),
+                  .headline6
+                  .copyWith(color: Theme.of(context).accentColor, letterSpacing: 2),
             ),
             SizedBox(height: 10),
             Observer(
@@ -56,7 +56,7 @@ class _TrendingPageState
             // Divider(height: 1, thickness: 1, color: Colors.grey),
             Text(
               'Today\'s read',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headline5,
             ),
             SizedBox(height: 10),
             Observer(

@@ -22,7 +22,7 @@ class TopHeadlinePosterWidget extends StatelessWidget {
             child: Text(
               article.title,
               style:
-                  Theme.of(context).textTheme.headline5.copyWith(fontSize: 16),
+                  Theme.of(context).textTheme.headline5.copyWith(),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),

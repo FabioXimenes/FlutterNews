@@ -4,6 +4,7 @@ const Color kPrimaryColor = Colors.black;
 
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(
+    fontFamily: 'PlayfairDisplay',
     primaryColor: kPrimaryColor,
     backgroundColor: Colors.white,
     accentColor: Colors.deepOrange[300],
@@ -11,9 +12,9 @@ class AppTheme {
       subtitle1: TextStyle(
           fontSize: 14, fontWeight: FontWeight.normal, color: kPrimaryColor),
       subtitle2: TextStyle(
-          fontSize: 10, fontWeight: FontWeight.normal, color: kPrimaryColor),
+          fontSize: 12, fontWeight: FontWeight.normal, color: kPrimaryColor),
       headline6: TextStyle(
-          fontSize: 10, fontWeight: FontWeight.bold, color: kPrimaryColor),
+          fontSize: 12, fontWeight: FontWeight.bold, color: kPrimaryColor),
       headline5: TextStyle(
           fontSize: 14, fontWeight: FontWeight.bold, color: kPrimaryColor),
       headline4: TextStyle(

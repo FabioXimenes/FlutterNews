@@ -26,8 +26,8 @@ class TodaysReadCardWidget extends StatelessWidget {
           'CATEGORY',
           style: Theme.of(context)
               .textTheme
-              .headline5
-              .copyWith(color: Theme.of(context).accentColor, fontSize: 12),
+              .headline6
+              .copyWith(color: Theme.of(context).accentColor, letterSpacing: 1),
         ),
         Container(
           height: 48,
@@ -36,7 +36,7 @@ class TodaysReadCardWidget extends StatelessWidget {
             article.title,
             overflow: TextOverflow.ellipsis,
             maxLines: 3,
-            style: Theme.of(context).textTheme.headline5,
+            style: Theme.of(context).textTheme.headline6,
           ),
         )
       ],

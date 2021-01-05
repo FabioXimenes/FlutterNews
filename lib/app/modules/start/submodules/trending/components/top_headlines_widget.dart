@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/app/modules/start/submodules/trending/components/top_headline_card_widget.dart';
 import 'package:flutter_news_app/app/shared/models/article_model.dart';
-import 'package:flutter_news_app/app/shared/models/articles_response_model.dart';
 
 class TopHeadlinesWidget extends StatelessWidget {
   final List<ArticleModel> articles;
