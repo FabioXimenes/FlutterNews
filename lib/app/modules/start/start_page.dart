@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_news_app/app/modules/start/components/custom_bottom_navigation_bar_widget.dart';
+import 'package:flutter_news_app/app/modules/start/submodules/categories/categories_module.dart';
 import 'package:flutter_news_app/app/modules/start/submodules/trending/trending_module.dart';
 import 'start_controller.dart';
 
@@ -25,7 +26,7 @@ class _StartPageState extends ModularState<StartPage, StartController> {
         controller: controller.pageController,
         children: [
           RouterOutlet(module: TrendingModule()),
-          Container(),
+          RouterOutlet(module: CategoriesModule()),
           Container(color: Colors.red),
           Container(),
           Container(color: Colors.red),
