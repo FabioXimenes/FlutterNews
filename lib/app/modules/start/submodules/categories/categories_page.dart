@@ -28,19 +28,29 @@ class _CategoriesPageState
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            TabBar(
-              tabs: controller.tabs,
-              controller: controller.tabController,
-              isScrollable: true,
-              labelColor: Colors.black,
-              unselectedLabelColor: Colors.black,
-              indicator: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(color: Colors.black, width: 3),
+            SizedBox(height: 10),
+            Container(
+              height: 28,
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: TabBar(
+                tabs: controller.tabs,
+                controller: controller.tabController,
+                isScrollable: true,
+                labelColor: Colors.white,
+                // labelStyle: Theme.of(context).textTheme.headline5,
+                unselectedLabelColor: Colors.black,
+                physics: BouncingScrollPhysics(),
+                labelPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 0),
+                indicator: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(25)
+                  // border: Border(
+                  //   bottom: BorderSide(color: Colors.black, width: 3),
+                  // ),
                 ),
+                indicatorColor: Colors.amber,
+                indicatorSize: TabBarIndicatorSize.tab,
               ),
-              indicatorColor: Colors.amber,
-              indicatorSize: TabBarIndicatorSize.tab,
             ),
             // TabBarView(
             //   controller: controller.tabController,
