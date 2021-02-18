@@ -11,17 +11,15 @@ class TopHeadlinesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
-
-    var _filteredArticles = articles.where((e) => e.urlToImage != null).toList();
     
     return Container(
       width: _size.width,
       height: _size.height * 0.44,
       child: PageView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: _filteredArticles.length,
+        itemCount: articles.length,
         itemBuilder: (context, index) {
-          return TopHeadlinePosterWidget(article: _filteredArticles[index]);
+          return TopHeadlinePosterWidget(article: articles[index]);
         },
       ),
     );
