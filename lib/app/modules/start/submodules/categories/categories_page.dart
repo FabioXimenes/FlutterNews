@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_news_app/app/modules/start/submodules/categories/components/article_category_card_widget.dart';
 import 'categories_controller.dart';
 
 class CategoriesPage extends StatefulWidget {
@@ -18,53 +20,92 @@ class _CategoriesPageState
   @override
   void initState() {
     super.initState();
+
+    controller.getArticlesFromCategory(controller.currentIndex);
+
     controller.tabController =
         TabController(length: controller.tabs.length, vsync: this);
+
+    controller.tabController.addListener(
+      () {
+        if (controller.tabController.index != controller.currentIndex) {
+          return controller
+              .getArticlesFromCategory(controller.tabController.index);
+        }
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            SizedBox(height: 10),
-            Container(
-              height: 28,
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: TabBar(
-                tabs: controller.tabs,
-                controller: controller.tabController,
-                isScrollable: true,
-                labelColor: Colors.white,
-                // labelStyle: Theme.of(context).textTheme.headline5,
-                unselectedLabelColor: Colors.black,
-                physics: BouncingScrollPhysics(),
-                labelPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 0),
-                indicator: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(25)
-                  // border: Border(
-                  //   bottom: BorderSide(color: Colors.black, width: 3),
-                  // ),
-                ),
-                indicatorColor: Colors.amber,
-                indicatorSize: TabBarIndicatorSize.tab,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 10, left: 16, right: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              SizedBox(height: 10),
+              Text(
+                'CATEGORIES',
+                style: Theme.of(context).textTheme.headline5.copyWith(
+                    color: Theme.of(context).accentColor, letterSpacing: 2),
               ),
-            ),
-            // TabBarView(
-            //   controller: controller.tabController,
-            //   children: [
-            //     Expanded(child: Container()),
-            //     Expanded(child: Container()),
-            //     Expanded(child: Container()),
-            //     Expanded(child: Container()),
-            //     Expanded(child: Container()),
-            //     Expanded(child: Container()),
-            //     Expanded(child: Container()),
-            //   ],
-            // ),
-          ],
+              SizedBox(height: 20),
+              Container(
+                height: 28,
+                child: TabBar(
+                  tabs: controller.tabs,
+                  controller: controller.tabController,
+                  isScrollable: true,
+                  labelColor: Colors.white,
+                  // labelStyle: Theme.of(context).textTheme.headline5,
+                  unselectedLabelColor: Colors.black,
+                  physics: BouncingScrollPhysics(),
+                  labelPadding:
+                      EdgeInsets.symmetric(horizontal: 15, vertical: 0),
+                  indicator: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(25)),
+                  indicatorColor: Colors.amber,
+                  indicatorSize: TabBarIndicatorSize.tab,
+                ),
+              ),
+              SizedBox(height: 10),
+              Expanded(
+                child: Observer(
+                  builder: (_) {
+                    return controller.isLoading
+                        ? Center(child: CircularProgressIndicator())
+                        : Container(
+                            child: ListView.builder(
+                              itemCount: controller
+                                  .currentArticlesResponse.articles.length,
+                              itemBuilder: (_, index) {
+                                return ArticleCategoryCardWidget(
+                                  article: controller
+                                      .currentArticlesResponse.articles[index],
+                                );
+                              },
+                            ),
+                          );
+                  },
+                ),
+              ),
+              // TabBarView(
+              //   controller: controller.tabController,
+              //   children: [
+              //     Expanded(child: Container()),
+              //     Expanded(child: Container()),
+              //     Expanded(child: Container()),
+              //     Expanded(child: Container()),
+              //     Expanded(child: Container()),
+              //     Expanded(child: Container()),
+              //     Expanded(child: Container()),
+              //   ],
+              // ),
+            ],
+          ),
         ),
       ),
     );
