@@ -11,6 +11,7 @@ class TopHeadlinesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
+    
     return Container(
       width: _size.width,
       height: _size.height * 0.44,
@@ -18,8 +19,7 @@ class TopHeadlinesWidget extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: articles.length,
         itemBuilder: (context, index) {
-          return TopHeadlinePosterWidget(
-              article: articles[index]);
+          return TopHeadlinePosterWidget(article: articles[index]);
         },
       ),
     );
