@@ -42,6 +42,36 @@ mixin _$SearchController on _SearchControllerBase, Store {
     });
   }
 
+  final _$isFilteringAtom = Atom(name: '_SearchControllerBase.isFiltering');
+
+  @override
+  bool get isFiltering {
+    _$isFilteringAtom.reportRead();
+    return super.isFiltering;
+  }
+
+  @override
+  set isFiltering(bool value) {
+    _$isFilteringAtom.reportWrite(value, super.isFiltering, () {
+      super.isFiltering = value;
+    });
+  }
+
+  final _$sortByAtom = Atom(name: '_SearchControllerBase.sortBy');
+
+  @override
+  String get sortBy {
+    _$sortByAtom.reportRead();
+    return super.sortBy;
+  }
+
+  @override
+  set sortBy(String value) {
+    _$sortByAtom.reportWrite(value, super.sortBy, () {
+      super.sortBy = value;
+    });
+  }
+
   final _$_SearchControllerBaseActionController =
       ActionController(name: '_SearchControllerBase');
 
@@ -57,7 +87,7 @@ mixin _$SearchController on _SearchControllerBase, Store {
   }
 
   @override
-  dynamic clearSearchQuery() {
+  void clearSearchQuery() {
     final _$actionInfo = _$_SearchControllerBaseActionController.startAction(
         name: '_SearchControllerBase.clearSearchQuery');
     try {
@@ -68,9 +98,33 @@ mixin _$SearchController on _SearchControllerBase, Store {
   }
 
   @override
+  void setFilteringFlag() {
+    final _$actionInfo = _$_SearchControllerBaseActionController.startAction(
+        name: '_SearchControllerBase.setFilteringFlag');
+    try {
+      return super.setFilteringFlag();
+    } finally {
+      _$_SearchControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setSortOption(String value) {
+    final _$actionInfo = _$_SearchControllerBaseActionController.startAction(
+        name: '_SearchControllerBase.setSortOption');
+    try {
+      return super.setSortOption(value);
+    } finally {
+      _$_SearchControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 searchQuery: ${searchQuery},
+isFiltering: ${isFiltering},
+sortBy: ${sortBy},
 isSearchQueryEmpty: ${isSearchQueryEmpty}
     ''';
   }
