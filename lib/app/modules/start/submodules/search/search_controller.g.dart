@@ -72,6 +72,44 @@ mixin _$SearchController on _SearchControllerBase, Store {
     });
   }
 
+  final _$loadingStatusAtom = Atom(name: '_SearchControllerBase.loadingStatus');
+
+  @override
+  LoadingStatus get loadingStatus {
+    _$loadingStatusAtom.reportRead();
+    return super.loadingStatus;
+  }
+
+  @override
+  set loadingStatus(LoadingStatus value) {
+    _$loadingStatusAtom.reportWrite(value, super.loadingStatus, () {
+      super.loadingStatus = value;
+    });
+  }
+
+  final _$articlesResponseAtom =
+      Atom(name: '_SearchControllerBase.articlesResponse');
+
+  @override
+  ArticlesResponseModel get articlesResponse {
+    _$articlesResponseAtom.reportRead();
+    return super.articlesResponse;
+  }
+
+  @override
+  set articlesResponse(ArticlesResponseModel value) {
+    _$articlesResponseAtom.reportWrite(value, super.articlesResponse, () {
+      super.articlesResponse = value;
+    });
+  }
+
+  final _$searchAsyncAction = AsyncAction('_SearchControllerBase.search');
+
+  @override
+  Future search() {
+    return _$searchAsyncAction.run(() => super.search());
+  }
+
   final _$_SearchControllerBaseActionController =
       ActionController(name: '_SearchControllerBase');
 
@@ -125,6 +163,8 @@ mixin _$SearchController on _SearchControllerBase, Store {
 searchQuery: ${searchQuery},
 isFiltering: ${isFiltering},
 sortBy: ${sortBy},
+loadingStatus: ${loadingStatus},
+articlesResponse: ${articlesResponse},
 isSearchQueryEmpty: ${isSearchQueryEmpty}
     ''';
   }

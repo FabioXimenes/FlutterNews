@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_news_app/app/modules/start/submodules/categories/components/article_category_card_widget.dart';
+import 'package:flutter_news_app/app/shared/components/article_card_widget.dart';
+import 'package:flutter_news_app/app/shared/components/articles_list_view_widget.dart';
 import 'categories_controller.dart';
 
 class CategoriesPage extends StatefulWidget {
@@ -77,33 +78,13 @@ class _CategoriesPageState
                   builder: (_) {
                     return controller.isLoading
                         ? Center(child: CircularProgressIndicator())
-                        : Container(
-                            child: ListView.builder(
-                              itemCount: controller
-                                  .currentArticlesResponse.articles.length,
-                              itemBuilder: (_, index) {
-                                return ArticleCategoryCardWidget(
-                                  article: controller
-                                      .currentArticlesResponse.articles[index],
-                                );
-                              },
-                            ),
+                        : ArticlesListViewWidget(
+                            articles:
+                                controller.currentArticlesResponse.articles,
                           );
                   },
                 ),
               ),
-              // TabBarView(
-              //   controller: controller.tabController,
-              //   children: [
-              //     Expanded(child: Container()),
-              //     Expanded(child: Container()),
-              //     Expanded(child: Container()),
-              //     Expanded(child: Container()),
-              //     Expanded(child: Container()),
-              //     Expanded(child: Container()),
-              //     Expanded(child: Container()),
-              //   ],
-              // ),
             ],
           ),
         ),

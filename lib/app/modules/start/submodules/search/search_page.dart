@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_news_app/app/shared/components/articles_list_view_widget.dart';
 import 'search_controller.dart';
 
 class SearchPage extends StatefulWidget {
@@ -56,7 +57,7 @@ class _SearchPageState extends ModularState<SearchPage, SearchController> {
                                 ),
                                 textInputAction: TextInputAction.search,
                                 onChanged: controller.setSearchQuery,
-                                onFieldSubmitted: (value) {},
+                                onFieldSubmitted: (_) => controller.search(),
                               ),
                             ),
                           ),
@@ -180,7 +181,7 @@ class _SearchPageState extends ModularState<SearchPage, SearchController> {
                           ),
                         ),
                         RaisedButton(
-                          onPressed: () {},
+                          onPressed: () => controller.search(),
                           child: Text(
                             'UPDATE',
                             style:
@@ -192,6 +193,23 @@ class _SearchPageState extends ModularState<SearchPage, SearchController> {
                       ],
                     ),
                   );
+                },
+              ),
+              Observer(
+                builder: (_) {
+                  return controller.loadingStatus != LoadingStatus.waiting
+                      ? Expanded(
+                          child:
+                              controller.loadingStatus == LoadingStatus.success
+                                  ? ArticlesListViewWidget(
+                                      articles:
+                                          controller.articlesResponse.articles,
+                                    )
+                                  : Center(
+                                      child: CircularProgressIndicator(),
+                                    ),
+                        )
+                      : SizedBox();
                 },
               )
             ],
