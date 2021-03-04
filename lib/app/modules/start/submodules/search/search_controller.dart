@@ -61,18 +61,23 @@ abstract class _SearchControllerBase with Store {
 
   @action
   search() async {
-    loadingStatus = LoadingStatus.loading;
+    if (searchQuery != '') {
+      isFiltering = false;
+      loadingStatus = LoadingStatus.loading;
 
-    var query = QueryModel(
-      message: searchQuery,
-      sortBy: sortBy,
-    );
+      var query = QueryModel(
+        message: searchQuery,
+        sortBy: sortBy,
+      );
 
-    articlesResponse = await _articleRepository.getArticlesByFilter(query);
-    articlesResponse.articles = articlesResponse.articles
-        .where((element) => element.url != null)
-        .toList();
+      articlesResponse = await _articleRepository.getArticlesByFilter(query);
+      articlesResponse.articles = articlesResponse.articles
+          .where((element) => element.url != null)
+          .toList();
 
-    loadingStatus = LoadingStatus.success;
+      loadingStatus = LoadingStatus.success;
+    } else {
+      articlesResponse = null;
+    }
   }
 }

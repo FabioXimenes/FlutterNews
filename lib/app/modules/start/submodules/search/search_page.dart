@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_news_app/app/shared/components/articles_list_view_widget.dart';
+import 'components/date_picker_widget.dart';
 import 'search_controller.dart';
 
 class SearchPage extends StatefulWidget {
@@ -33,7 +34,6 @@ class _SearchPageState extends ModularState<SearchPage, SearchController> {
                   Expanded(
                     child: Container(
                       height: 50,
-                      // width: _size.width * 0.95,
                       padding:
                           EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                       decoration: BoxDecoration(
@@ -108,53 +108,9 @@ class _SearchPageState extends ModularState<SearchPage, SearchController> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('from'),
-                                Container(
-                                  height: 30,
-                                  width: 100,
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 10,
-                                    vertical: 3,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey[400],
-                                    borderRadius: BorderRadius.circular(3),
-                                  ),
-                                  child: TextFormField(
-                                    decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
+                            DatePickerWidget(title: 'from'),
                             SizedBox(width: 20),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('to'),
-                                Container(
-                                  height: 30,
-                                  width: 100,
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 10,
-                                    vertical: 3,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey[400],
-                                    borderRadius: BorderRadius.circular(3),
-                                  ),
-                                  child: TextFormField(
-                                    decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
+                            DatePickerWidget(title: 'to'),
                           ],
                         ),
                         SizedBox(height: 10),
@@ -197,7 +153,8 @@ class _SearchPageState extends ModularState<SearchPage, SearchController> {
               ),
               Observer(
                 builder: (_) {
-                  return controller.loadingStatus != LoadingStatus.waiting
+                  return controller.loadingStatus != LoadingStatus.waiting &&
+                          controller.articlesResponse != null
                       ? Expanded(
                           child:
                               controller.loadingStatus == LoadingStatus.success
