@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_news_app/app/shared/components/articles_list_view_widget.dart';
-import 'components/date_picker_widget.dart';
+import 'components/date_picker/date_picker_widget.dart';
 import 'search_controller.dart';
 
 class SearchPage extends StatefulWidget {
@@ -100,7 +100,7 @@ class _SearchPageState extends ModularState<SearchPage, SearchController> {
                   return AnimatedContainer(
                     duration: Duration(milliseconds: 200),
                     height: controller.isFiltering ? 180 : 0,
-                    width: _size.width * 0.8,
+                    width: _size.width * 0.9,
                     color: Colors.grey[200],
                     child: Column(
                       children: [

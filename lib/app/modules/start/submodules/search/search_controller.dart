@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:flutter_news_app/app/shared/models/articles_response_model.dart';
 import 'package:flutter_news_app/app/shared/models/query_model.dart';
 import 'package:flutter_news_app/app/shared/repositories/article_repository.dart';
+import 'package:flutter_news_app/app/shared/stores/query_store.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -19,15 +20,11 @@ enum LoadingStatus {
 
 abstract class _SearchControllerBase with Store {
   final ArticleRepository _articleRepository = Modular.get();
+  final QueryStore _queryStore = Modular.get();
 
   final searchFieldController = TextEditingController();
-  final fromDateController = MaskedTextController(mask: '00/00/0000');
-  final toDateController = MaskedTextController(mask: '00/00/0000');
 
   final List<String> sortOptions = ['publishedAt', 'relevancy', 'popularity'];
-
-  @observable
-  String searchQuery = '';
 
   @observable
   bool isFiltering = false;
@@ -42,15 +39,15 @@ abstract class _SearchControllerBase with Store {
   ArticlesResponseModel articlesResponse;
 
   @computed
-  bool get isSearchQueryEmpty => searchQuery != '';
+  bool get isSearchQueryEmpty => _queryStore.message != '';
 
   @action
-  void setSearchQuery(value) => searchQuery = value;
+  void setSearchQuery(value) => _queryStore.message = value;
 
   @action
   void clearSearchQuery() {
     searchFieldController.clear();
-    searchQuery = '';
+    _queryStore.message = '';
   }
 
   @action
@@ -61,13 +58,15 @@ abstract class _SearchControllerBase with Store {
 
   @action
   search() async {
-    if (searchQuery != '') {
+    if (_queryStore.message != '') {
       isFiltering = false;
       loadingStatus = LoadingStatus.loading;
 
       var query = QueryModel(
-        message: searchQuery,
+        message: _queryStore.message,
         sortBy: sortBy,
+        from: _queryStore.from.toIso8601String(),
+        to: _queryStore.to.toIso8601String(),
       );
 
       articlesResponse = await _articleRepository.getArticlesByFilter(query);

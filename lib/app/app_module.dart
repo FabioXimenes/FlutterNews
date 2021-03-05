@@ -1,3 +1,4 @@
+import 'shared/stores/query_store.dart';
 import 'package:flutter_news_app/app/modules/login/login_module.dart';
 import 'package:flutter_news_app/app/modules/sign_up/sign_up_module.dart';
 import 'package:flutter_news_app/app/modules/start/start_module.dart';
@@ -17,6 +18,7 @@ import 'package:flutter_news_app/app/app_widget.dart';
 class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
+        $QueryStore,
         $AppController,
         Bind((i) => UserFirebaseAuth()),
         Bind((i) => UserRepository()),

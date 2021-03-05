@@ -5,8 +5,8 @@ part 'query_model.g.dart';
 @JsonSerializable()
 class QueryModel {
   String message;
-  DateTime from;
-  DateTime to;
+  String from;
+  String to;
   String sortBy;
 
   QueryModel({

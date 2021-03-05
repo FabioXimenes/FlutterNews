@@ -50,16 +50,10 @@ class ArticleRepository {
     Map<String, dynamic> params = {
       'apiKey': API_KEY,
       'q': query.message.toLowerCase(),
-      'sortBy': query.sortBy
+      'sortBy': query.sortBy,
+      'from': query.from,
+      'to': query.to,
     };
-
-    if (query.from != null) {
-      params['from'] = query.from;
-    }
-
-    if (query.to != null) {
-      params['to'] = query.to;
-    }
 
     try {
       Response response = await _client.get(url, queryParameters: params);

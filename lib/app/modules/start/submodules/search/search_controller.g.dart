@@ -27,21 +27,6 @@ mixin _$SearchController on _SearchControllerBase, Store {
               name: '_SearchControllerBase.isSearchQueryEmpty'))
       .value;
 
-  final _$searchQueryAtom = Atom(name: '_SearchControllerBase.searchQuery');
-
-  @override
-  String get searchQuery {
-    _$searchQueryAtom.reportRead();
-    return super.searchQuery;
-  }
-
-  @override
-  set searchQuery(String value) {
-    _$searchQueryAtom.reportWrite(value, super.searchQuery, () {
-      super.searchQuery = value;
-    });
-  }
-
   final _$isFilteringAtom = Atom(name: '_SearchControllerBase.isFiltering');
 
   @override
@@ -160,7 +145,6 @@ mixin _$SearchController on _SearchControllerBase, Store {
   @override
   String toString() {
     return '''
-searchQuery: ${searchQuery},
 isFiltering: ${isFiltering},
 sortBy: ${sortBy},
 loadingStatus: ${loadingStatus},
