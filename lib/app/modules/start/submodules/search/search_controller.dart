@@ -65,17 +65,22 @@ abstract class _SearchControllerBase with Store {
       var query = QueryModel(
         message: _queryStore.message,
         sortBy: sortBy,
-        from: _queryStore.from.toIso8601String(),
-        to: _queryStore.to.toIso8601String(),
+        from: _queryStore.from.day == DateTime.now().day
+            ? null
+            : _queryStore.from.toIso8601String(),
+        to: _queryStore.to.day == DateTime.now().day
+            ? null
+            : _queryStore.to.toIso8601String(),
       );
 
       articlesResponse = await _articleRepository.getArticlesByFilter(query);
       articlesResponse.articles = articlesResponse.articles
-          .where((element) => element.url != null)
+          .where((element) => element.urlToImage != null)
           .toList();
 
       loadingStatus = LoadingStatus.success;
     } else {
+      loadingStatus = LoadingStatus.waiting;
       articlesResponse = null;
     }
   }

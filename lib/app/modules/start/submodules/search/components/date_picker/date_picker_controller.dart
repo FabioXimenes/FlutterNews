@@ -10,4 +10,16 @@ class DatePickerController = _DatePickerControllerBase
 
 abstract class _DatePickerControllerBase with Store {
   final QueryStore queryStore = Modular.get();
+
+  @observable
+  DateTime date;
+
+  @observable
+  Function(DateTime _date) setDate;
+
+  @action
+  handleDateChange(DateTime newDate) {
+    setDate(newDate);
+    date = newDate;
+  }
 }

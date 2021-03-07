@@ -153,8 +153,7 @@ class _SearchPageState extends ModularState<SearchPage, SearchController> {
               ),
               Observer(
                 builder: (_) {
-                  return controller.loadingStatus != LoadingStatus.waiting &&
-                          controller.articlesResponse != null
+                  return controller.loadingStatus != LoadingStatus.waiting
                       ? Expanded(
                           child:
                               controller.loadingStatus == LoadingStatus.success

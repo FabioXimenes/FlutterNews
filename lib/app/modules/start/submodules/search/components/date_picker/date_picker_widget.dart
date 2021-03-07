@@ -20,6 +20,14 @@ class _DatePickerWidgetState
     extends ModularState<DatePickerWidget, DatePickerController> {
   @override
   Widget build(BuildContext context) {
+    if (widget.title == 'from') {
+      controller.date = controller.queryStore.from;
+      controller.setDate = controller.queryStore.setFromDate;
+    } else {
+      controller.date = controller.queryStore.to;
+      controller.setDate = controller.queryStore.setToDate;
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -29,16 +37,12 @@ class _DatePickerWidgetState
             var now = DateTime.now();
             var selectedDate = await showDatePicker(
               context: context,
-              initialDate: now,
+              initialDate: controller.date,
               firstDate: DateTime.utc(now.year - 1),
-              lastDate: now,
+              lastDate: widget.title == 'from' ? controller.queryStore.to : now,
             );
 
-            if (widget.title == 'from') {
-              controller.queryStore.setFromDate(selectedDate);
-            } else {
-              controller.queryStore.setToDate(selectedDate);
-            }
+            controller.handleDateChange(selectedDate);
           },
           child: Row(
             children: [
@@ -53,9 +57,7 @@ class _DatePickerWidgetState
                   child: Observer(builder: (_) {
                     return Text(
                       DateFormat('dd/MM/yyyy').format(
-                        widget.title == 'from'
-                            ? controller.queryStore.from
-                            : controller.queryStore.to,
+                        controller.date,
                       ),
                     );
                   }),

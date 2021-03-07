@@ -51,9 +51,16 @@ class ArticleRepository {
       'apiKey': API_KEY,
       'q': query.message.toLowerCase(),
       'sortBy': query.sortBy,
-      'from': query.from,
-      'to': query.to,
+      'language': 'en',
     };
+
+    if (query.from != null) {
+      params['from'] = query.from;
+    }
+
+    if (query.to != null) {
+      params['to'] = query.to;
+    }    
 
     try {
       Response response = await _client.get(url, queryParameters: params);
