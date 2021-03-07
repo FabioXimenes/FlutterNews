@@ -1,3 +1,4 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/app/shared/components/custom_modal_bottom_sheet.dart';
 import 'package:flutter_news_app/app/shared/models/article_model.dart';
@@ -41,10 +42,23 @@ class TodaysReadCardWidget extends StatelessWidget {
                     image: NetworkImage(article.urlToImage))),
           ),
           SizedBox(height: 3),
-          Text(
-            'CATEGORY',
-            style: Theme.of(context).textTheme.headline6.copyWith(
-                color: Theme.of(context).accentColor, letterSpacing: 1),
+          Container(
+            width: 120,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'CATEGORY',
+                  style: Theme.of(context).textTheme.headline6.copyWith(
+                      color: Theme.of(context).accentColor, letterSpacing: 1),
+                ),
+                Icon(
+                  EvaIcons.bookmarkOutline,
+                  color: Theme.of(context).accentColor,
+                  size: 20,
+                )
+              ],
+            ),
           ),
           Container(
             height: 48,

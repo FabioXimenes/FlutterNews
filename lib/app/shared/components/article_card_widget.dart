@@ -1,3 +1,4 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/app/shared/components/custom_modal_bottom_sheet.dart';
 import 'package:flutter_news_app/app/shared/models/article_model.dart';
@@ -59,9 +60,22 @@ class ArticleCardWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    article.title,
-                    style: Theme.of(context).textTheme.headline6,
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          article.title,
+                          style: Theme.of(context).textTheme.headline6,
+                          textAlign: TextAlign.justify,
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      Icon(
+                        EvaIcons.bookmarkOutline,
+                        color: Theme.of(context).accentColor,
+                      )
+                    ],
                   ),
                   SizedBox(height: 2),
                   Expanded(

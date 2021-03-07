@@ -1,3 +1,4 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/app/shared/components/custom_modal_bottom_sheet.dart';
 import 'package:flutter_news_app/app/shared/models/article_model.dart';
@@ -41,6 +42,7 @@ class TopHeadlinePosterWidget extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline4,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.justify,
               ),
             ),
             SizedBox(height: 10),
@@ -49,10 +51,21 @@ class TopHeadlinePosterWidget extends StatelessWidget {
               height: _size.height * 0.3,
               decoration: BoxDecoration(
                 // color: Colors.amberAccent,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(15),
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: NetworkImage(article.urlToImage),
+                ),
+              ),
+              child: Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                  icon: Icon(
+                    EvaIcons.bookmarkOutline,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                  onPressed: () {},
                 ),
               ),
             ),

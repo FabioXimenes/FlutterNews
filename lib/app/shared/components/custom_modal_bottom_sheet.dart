@@ -1,3 +1,4 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/app/shared/models/article_model.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -25,19 +26,33 @@ class CustomModalButtonSheet extends StatelessWidget {
               style: Theme.of(context).textTheme.headline4,
             ),
             SizedBox(height: 5),
-            Text(
-              '${_date.day}/${_date.month}/${_date.year}',
-              style: Theme.of(context)
-                  .textTheme
-                  .subtitle1
-                  .copyWith(color: Colors.grey),
-            ),
-            Text(
-              'by ${article.author}',
-              style: Theme.of(context)
-                  .textTheme
-                  .subtitle1
-                  .copyWith(color: Colors.grey),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '${_date.day}/${_date.month}/${_date.year}',
+                      style: Theme.of(context)
+                          .textTheme
+                          .subtitle1
+                          .copyWith(color: Colors.grey),
+                    ),
+                    Text(
+                      'by ${article.author}',
+                      style: Theme.of(context)
+                          .textTheme
+                          .subtitle1
+                          .copyWith(color: Colors.grey),
+                    ),
+                  ],
+                ),
+                Icon(
+                  EvaIcons.bookmarkOutline,
+                  color: Theme.of(context).accentColor,
+                )
+              ],
             ),
             SizedBox(height: 10),
             Container(
@@ -54,7 +69,10 @@ class CustomModalButtonSheet extends StatelessWidget {
             SizedBox(height: 10),
             Text(
               article.description,
-              style: Theme.of(context).textTheme.subtitle1.copyWith(color: Colors.grey[900]),
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle1
+                  .copyWith(color: Colors.grey[900]),
               // overflow: TextOverflow.ellipsis,
             ),
           ],
