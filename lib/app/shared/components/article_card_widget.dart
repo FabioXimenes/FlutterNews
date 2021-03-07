@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_news_app/app/shared/components/custom_modal_bottom_sheet.dart';
 import 'package:flutter_news_app/app/shared/models/article_model.dart';
 
-class ArticleCategoryCardWidget extends StatelessWidget {
+class ArticleCardWidget extends StatelessWidget {
   final ArticleModel article;
 
-  const ArticleCategoryCardWidget({
+  const ArticleCardWidget({
     Key key,
     @required this.article,
   }) : super(key: key);
