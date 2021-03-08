@@ -1,5 +1,5 @@
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_news_app/app/shared/components/bookmark/bookmark_widget.dart';
 import 'package:flutter_news_app/app/shared/components/custom_modal_bottom_sheet.dart';
 import 'package:flutter_news_app/app/shared/models/article_model.dart';
 
@@ -52,8 +52,8 @@ class TodaysReadCardWidget extends StatelessWidget {
                   style: Theme.of(context).textTheme.headline6.copyWith(
                       color: Theme.of(context).accentColor, letterSpacing: 1),
                 ),
-                Icon(
-                  EvaIcons.bookmarkOutline,
+                BookmarkWidget(
+                  url: article.url,
                   color: Theme.of(context).accentColor,
                   size: 20,
                 )

@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'shared_preferences_storage.dart';
+part of 'shared_preferences_service.dart';
 
 // **************************************************************************
 // InjectionGenerator
 // **************************************************************************
 
-final $LocalStorageService = BindInject(
-  (i) => LocalStorageService(),
+final $SharedPreferencesService = BindInject(
+  (i) => SharedPreferencesService(),
   singleton: true,
   lazy: true,
 );

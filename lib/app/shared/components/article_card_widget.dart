@@ -1,5 +1,6 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_news_app/app/shared/components/bookmark/bookmark_widget.dart';
 import 'package:flutter_news_app/app/shared/components/custom_modal_bottom_sheet.dart';
 import 'package:flutter_news_app/app/shared/models/article_model.dart';
 
@@ -71,10 +72,10 @@ class ArticleCardWidget extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 10),
-                      Icon(
-                        EvaIcons.bookmarkOutline,
+                      BookmarkWidget(
+                        url: article.url,
                         color: Theme.of(context).accentColor,
-                      )
+                      ),
                     ],
                   ),
                   SizedBox(height: 2),

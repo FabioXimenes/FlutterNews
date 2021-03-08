@@ -1,3 +1,4 @@
+import 'shared/components/bookmark/bookmark_controller.dart';
 import 'shared/stores/query_store.dart';
 import 'package:flutter_news_app/app/modules/login/login_module.dart';
 import 'package:flutter_news_app/app/modules/sign_up/sign_up_module.dart';
@@ -14,12 +15,15 @@ import 'app_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/app/app_widget.dart';
+import 'package:flutter_news_app/app/shared/services/shared_preferences_service.dart';
 
 class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
+        $BookmarkController,
         $QueryStore,
         $AppController,
+        $SharedPreferencesService,
         Bind((i) => UserFirebaseAuth()),
         Bind((i) => UserRepository()),
         Bind((i) => ArticleRepository()),

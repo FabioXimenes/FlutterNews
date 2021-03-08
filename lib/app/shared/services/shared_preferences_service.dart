@@ -4,13 +4,13 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_news_app/app/shared/services/interfaces/local_storage_interface.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-part 'shared_preferences_storage.g.dart';
+part 'shared_preferences_service.g.dart';
 
 @Injectable()
-class LocalStorageService implements ILocalStorage {
+class SharedPreferencesService implements ILocalStorage {
   Future<SharedPreferences> _prefs;
 
-  LocalStorageService() {
+  SharedPreferencesService() {
     _init();
   }
 

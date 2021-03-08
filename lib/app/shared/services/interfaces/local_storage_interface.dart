@@ -1,6 +1,9 @@
+import 'package:flutter_modular/flutter_modular.dart';
+
+@Injectable()
 abstract class ILocalStorage {
-  Future getValue<T>(String key);
-  Future setValue<T>(String key, dynamic value);
-  Future contains(String key);
-  Future delete(String key);
+  Future<dynamic> getValue<T>(String key);
+  Future<bool> setValue<T>(String key, dynamic value);
+  Future<bool> contains(String key);
+  Future<bool> delete(String key);
 }
