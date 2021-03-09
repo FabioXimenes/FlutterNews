@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'article_model.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ArticleModel {
   SourceModel source;
   String author;

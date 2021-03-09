@@ -23,7 +23,7 @@ ArticleModel _$ArticleModelFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$ArticleModelToJson(ArticleModel instance) =>
     <String, dynamic>{
-      'source': instance.source,
+      'source': instance.source?.toJson(),
       'author': instance.author,
       'title': instance.title,
       'description': instance.description,

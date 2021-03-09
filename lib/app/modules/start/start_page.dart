@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_news_app/app/modules/start/components/custom_bottom_navigation_bar_widget.dart';
+import 'package:flutter_news_app/app/modules/start/submodules/bookmarks/bookmarks_module.dart';
 import 'package:flutter_news_app/app/modules/start/submodules/categories/categories_module.dart';
 import 'package:flutter_news_app/app/modules/start/submodules/search/search_module.dart';
 import 'package:flutter_news_app/app/modules/start/submodules/trending/trending_module.dart';
@@ -35,7 +36,7 @@ class _StartPageState extends ModularState<StartPage, StartController> {
           RouterOutlet(module: TrendingModule()),
           RouterOutlet(module: CategoriesModule()),
           RouterOutlet(module: SearchModule()),
-          Container(),
+          RouterOutlet(module: BookmarksModule()),
           Container(color: Colors.red),
         ],
       ),

@@ -12,27 +12,27 @@ class BookmarkController = _BookmarkControllerBase with _$BookmarkController;
 
 abstract class _BookmarkControllerBase with Store {
   final ILocalStorage _localStorage = Modular.get();
-  final BookmarkStore _bookmarkStore = Modular.get();
+  final BookmarkStore bookmarkStore = Modular.get();
 
   @observable
   bool isBookmarked = false;
 
   @action
   checkArticleBookmark(ArticleModel article) async {
-    var index = _bookmarkStore.bookmarks.indexWhere((element) => element['url'] == article.url);
+    var index = bookmarkStore.bookmarks.indexWhere((element) => element['url'] == article.url);
     isBookmarked = index != -1;
     print('Check bookmark: $isBookmarked');
   }
 
   @action
   setBookmark(ArticleModel article) async {
-    _bookmarkStore.addBookmark(article.toJson());
+    bookmarkStore.addBookmark(article.toJson());
     isBookmarked = true;
   }
 
   @action
   removeBookmark(ArticleModel article) async {
-    _bookmarkStore.removeBookmark(article.toJson());
+    bookmarkStore.removeBookmark(article.toJson());
     isBookmarked = false;
   }
 }

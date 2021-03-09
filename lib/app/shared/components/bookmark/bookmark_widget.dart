@@ -27,6 +27,11 @@ class _BookmarkWidgetState
   void initState() {
     super.initState();
     controller.checkArticleBookmark(widget.article);
+    controller.bookmarkStore.bookmarksLength
+        .addListener(() {
+          print('PASSOU');
+          controller.checkArticleBookmark(widget.article);
+        });
   }
 
   @override

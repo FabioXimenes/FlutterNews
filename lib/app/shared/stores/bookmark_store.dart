@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_news_app/app/shared/constants.dart';
 import 'package:flutter_news_app/app/shared/services/interfaces/local_storage_interface.dart';
 import 'package:mobx/mobx.dart';
@@ -10,9 +11,14 @@ class BookmarkStore = _BookmarkStoreBase with _$BookmarkStore;
 
 abstract class _BookmarkStoreBase with Store {
   final ILocalStorage _localStorage = Modular.get();
+  ValueNotifier bookmarksLength;
 
   @observable
   ObservableList<Map<String,dynamic>> bookmarks = <Map<String, dynamic>>[].asObservable();
+
+  _BookmarkStoreBase(){
+    bookmarksLength = ValueNotifier(bookmarks);
+  }
 
   @action
   getBookmarks() async {
@@ -26,11 +32,13 @@ abstract class _BookmarkStoreBase with Store {
   addBookmark(Map<String, dynamic> bookmark) async {
     bookmarks.add(bookmark);
     await _localStorage.setValue<Map>(AppStorage.bookmarks, bookmarks);
+    bookmarksLength.notifyListeners();
   }
 
   @action
   removeBookmark(Map<String, dynamic> bookmark) async {
     bookmarks.removeWhere((element) => element['url'] == bookmark['url']);
     await _localStorage.setValue<Map>(AppStorage.bookmarks, bookmarks);
+    bookmarksLength.notifyListeners();
   }
 }
