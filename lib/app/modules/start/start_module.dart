@@ -1,3 +1,5 @@
+import 'package:flutter_news_app/app/shared/components/bookmark/bookmark_controller.dart';
+
 import 'start_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -7,6 +9,7 @@ class StartModule extends ChildModule {
   @override
   List<Bind> get binds => [
         $StartController,
+        $BookmarkController,
       ];
 
   @override
