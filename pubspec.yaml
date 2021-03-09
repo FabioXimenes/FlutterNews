@@ -33,6 +33,7 @@ environment:
   sdk: ">=2.8.0 <3.0.0"
 
 dependencies:
+  asuka: ^1.0.4
   shared_preferences: 0.5.12+4  
   intl: ^0.16.0
   flutter_masked_text: ^0.8.0
