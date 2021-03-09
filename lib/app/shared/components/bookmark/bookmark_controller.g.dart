@@ -38,26 +38,25 @@ mixin _$BookmarkController on _BookmarkControllerBase, Store {
       AsyncAction('_BookmarkControllerBase.checkArticleBookmark');
 
   @override
-  Future checkArticleBookmark(String articleUrl) {
+  Future checkArticleBookmark(ArticleModel article) {
     return _$checkArticleBookmarkAsyncAction
-        .run(() => super.checkArticleBookmark(articleUrl));
+        .run(() => super.checkArticleBookmark(article));
   }
 
   final _$setBookmarkAsyncAction =
       AsyncAction('_BookmarkControllerBase.setBookmark');
 
   @override
-  Future setBookmark(String articleUrl) {
-    return _$setBookmarkAsyncAction.run(() => super.setBookmark(articleUrl));
+  Future setBookmark(ArticleModel article) {
+    return _$setBookmarkAsyncAction.run(() => super.setBookmark(article));
   }
 
   final _$removeBookmarkAsyncAction =
       AsyncAction('_BookmarkControllerBase.removeBookmark');
 
   @override
-  Future removeBookmark(String articleUrl) {
-    return _$removeBookmarkAsyncAction
-        .run(() => super.removeBookmark(articleUrl));
+  Future removeBookmark(ArticleModel article) {
+    return _$removeBookmarkAsyncAction.run(() => super.removeBookmark(article));
   }
 
   @override

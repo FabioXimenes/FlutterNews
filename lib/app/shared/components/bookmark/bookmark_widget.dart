@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_news_app/app/shared/components/bookmark/bookmark_controller.dart';
+import 'package:flutter_news_app/app/shared/models/article_model.dart';
 
 class BookmarkWidget extends StatefulWidget {
-  final String url;
+  final ArticleModel article;
   final Color color;
   final double size;
 
   const BookmarkWidget({
     Key key,
-    @required this.url,
+    @required this.article,
     @required this.color,
     this.size = 25.0,
   }) : super(key: key);
@@ -25,7 +26,7 @@ class _BookmarkWidgetState
   @override
   void initState() {
     super.initState();
-    controller.checkArticleBookmark(widget.url);
+    controller.checkArticleBookmark(widget.article);
   }
 
   @override
@@ -34,8 +35,8 @@ class _BookmarkWidgetState
       builder: (_) {
         return GestureDetector(
           onTap: () => controller.isBookmarked
-              ? controller.removeBookmark(widget.url)
-              : controller.setBookmark(widget.url),
+              ? controller.removeBookmark(widget.article)
+              : controller.setBookmark(widget.article),
           child: Icon(
             controller.isBookmarked
                 ? EvaIcons.bookmark

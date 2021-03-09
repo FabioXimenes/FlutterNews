@@ -12,25 +12,25 @@ abstract class _BookmarkStoreBase with Store {
   final ILocalStorage _localStorage = Modular.get();
 
   @observable
-  ObservableList<String> bookmarks = <String>[].asObservable();
+  ObservableList<Map<String,dynamic>> bookmarks = <Map<String, dynamic>>[].asObservable();
 
   @action
   getBookmarks() async {
     if (await _localStorage.contains(AppStorage.bookmarks)) {
-      bookmarks = List<String>.from(
-          await _localStorage.getValue<List>(AppStorage.bookmarks)).asObservable();
+      bookmarks = List<Map<String, dynamic>>.from(
+          await _localStorage.getValue<Map>(AppStorage.bookmarks)).asObservable();
     }
   }
 
   @action
-  addBookmark(String bookmark) async {
+  addBookmark(Map<String, dynamic> bookmark) async {
     bookmarks.add(bookmark);
-    await _localStorage.setValue<List>(AppStorage.bookmarks, bookmarks);
+    await _localStorage.setValue<Map>(AppStorage.bookmarks, bookmarks);
   }
 
   @action
-  removeBookmark(String bookmark) async {
-    bookmarks.remove(bookmark);
-    await _localStorage.setValue<List>(AppStorage.bookmarks, bookmarks);
+  removeBookmark(Map<String, dynamic> bookmark) async {
+    bookmarks.removeWhere((element) => element['url'] == bookmark['url']);
+    await _localStorage.setValue<Map>(AppStorage.bookmarks, bookmarks);
   }
 }

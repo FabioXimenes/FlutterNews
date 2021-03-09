@@ -1,4 +1,5 @@
 import 'package:flutter_news_app/app/shared/constants.dart';
+import 'package:flutter_news_app/app/shared/models/article_model.dart';
 import 'package:flutter_news_app/app/shared/services/interfaces/local_storage_interface.dart';
 import 'package:flutter_news_app/app/shared/stores/bookmark_store.dart';
 import 'package:mobx/mobx.dart';
@@ -17,20 +18,21 @@ abstract class _BookmarkControllerBase with Store {
   bool isBookmarked = false;
 
   @action
-  checkArticleBookmark(String articleUrl) async {
-    isBookmarked = _bookmarkStore.bookmarks.contains(articleUrl);
+  checkArticleBookmark(ArticleModel article) async {
+    var index = _bookmarkStore.bookmarks.indexWhere((element) => element['url'] == article.url);
+    isBookmarked = index != -1;
     print('Check bookmark: $isBookmarked');
   }
 
   @action
-  setBookmark(String articleUrl) async {
-    _bookmarkStore.addBookmark(articleUrl);
+  setBookmark(ArticleModel article) async {
+    _bookmarkStore.addBookmark(article.toJson());
     isBookmarked = true;
   }
 
   @action
-  removeBookmark(String articleUrl) async {
-    _bookmarkStore.removeBookmark(articleUrl);
+  removeBookmark(ArticleModel article) async {
+    _bookmarkStore.removeBookmark(article.toJson());
     isBookmarked = false;
   }
 }

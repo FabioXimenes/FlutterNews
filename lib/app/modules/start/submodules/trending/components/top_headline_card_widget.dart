@@ -62,7 +62,7 @@ class TopHeadlinePosterWidget extends StatelessWidget {
                 alignment: Alignment.topRight,
                 padding: EdgeInsets.all(5),
                 child: BookmarkWidget(
-                  url: article.url,
+                  article: article,
                   color: Colors.white,
                   size: 30,
                 ),

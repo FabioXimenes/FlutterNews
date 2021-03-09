@@ -75,7 +75,7 @@ class ArticleCardWidget extends StatelessWidget {
                       ),
                       SizedBox(width: 10),
                       BookmarkWidget(
-                        url: article.url,
+                        article: article,
                         color: Theme.of(context).accentColor,
                       ),
                     ],

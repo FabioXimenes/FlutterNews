@@ -22,13 +22,13 @@ mixin _$BookmarkStore on _BookmarkStoreBase, Store {
   final _$bookmarksAtom = Atom(name: '_BookmarkStoreBase.bookmarks');
 
   @override
-  ObservableList<String> get bookmarks {
+  ObservableList<Map<String, dynamic>> get bookmarks {
     _$bookmarksAtom.reportRead();
     return super.bookmarks;
   }
 
   @override
-  set bookmarks(ObservableList<String> value) {
+  set bookmarks(ObservableList<Map<String, dynamic>> value) {
     _$bookmarksAtom.reportWrite(value, super.bookmarks, () {
       super.bookmarks = value;
     });
@@ -46,7 +46,7 @@ mixin _$BookmarkStore on _BookmarkStoreBase, Store {
       AsyncAction('_BookmarkStoreBase.addBookmark');
 
   @override
-  Future addBookmark(String bookmark) {
+  Future addBookmark(Map<String, dynamic> bookmark) {
     return _$addBookmarkAsyncAction.run(() => super.addBookmark(bookmark));
   }
 
@@ -54,7 +54,7 @@ mixin _$BookmarkStore on _BookmarkStoreBase, Store {
       AsyncAction('_BookmarkStoreBase.removeBookmark');
 
   @override
-  Future removeBookmark(String bookmark) {
+  Future removeBookmark(Map<String, dynamic> bookmark) {
     return _$removeBookmarkAsyncAction
         .run(() => super.removeBookmark(bookmark));
   }

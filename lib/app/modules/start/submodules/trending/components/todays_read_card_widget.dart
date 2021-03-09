@@ -53,7 +53,7 @@ class TodaysReadCardWidget extends StatelessWidget {
                       color: Theme.of(context).accentColor, letterSpacing: 1),
                 ),
                 BookmarkWidget(
-                  url: article.url,
+                  article: article,
                   color: Theme.of(context).accentColor,
                   size: 20,
                 )
