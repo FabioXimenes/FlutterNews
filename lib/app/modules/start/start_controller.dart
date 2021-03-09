@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/app/shared/constants.dart';
 import 'package:flutter_news_app/app/shared/repositories/user_repository.dart';
+import 'package:flutter_news_app/app/shared/stores/bookmark_store.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -12,6 +13,7 @@ class StartController = _StartControllerBase with _$StartController;
 abstract class _StartControllerBase with Store {
   final UserRepository userRepository = Modular.get();
   final PageController pageController = PageController();
+  final BookmarkStore bookmarkStore = Modular.get();
 
   @observable
   int currentPage = 0;

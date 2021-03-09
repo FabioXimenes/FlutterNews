@@ -20,6 +20,12 @@ class _StartPageState extends ModularState<StartPage, StartController> {
   //use 'controller' variable to access controller
 
   @override
+  void initState() {
+    super.initState();
+    controller.bookmarkStore.getBookmarks();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(

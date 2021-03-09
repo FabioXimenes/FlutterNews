@@ -9,6 +9,10 @@ class AppRoutes {
   static const trending = '/trending';
 }
 
+class AppStorage {
+  static const bookmarks = 'bookmarks';
+}
+
 class ApiUrls {
   static const topHeadlines = '/top-headlines';
   static const everything = '/everything';
