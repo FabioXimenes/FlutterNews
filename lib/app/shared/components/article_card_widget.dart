@@ -69,6 +69,8 @@ class ArticleCardWidget extends StatelessWidget {
                           article.title,
                           style: Theme.of(context).textTheme.headline6,
                           textAlign: TextAlign.justify,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       SizedBox(width: 10),
