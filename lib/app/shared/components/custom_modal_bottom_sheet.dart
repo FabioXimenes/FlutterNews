@@ -1,5 +1,6 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_news_app/app/shared/components/bookmark/bookmark_widget.dart';
 import 'package:flutter_news_app/app/shared/models/article_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -48,8 +49,8 @@ class CustomModalButtonSheet extends StatelessWidget {
                     ),
                   ],
                 ),
-                Icon(
-                  EvaIcons.bookmarkOutline,
+                BookmarkWidget(
+                  article: article,
                   color: Theme.of(context).accentColor,
                 )
               ],
