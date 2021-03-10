@@ -41,7 +41,16 @@ class _SettingsPageState
                 SizedBox(height: 30),
                 ConfigItemWidget(title: 'Change password', onTap: () {}),
                 SizedBox(height: 20),
-                ConfigItemWidget(title: 'About', onTap: () {}),
+                ConfigItemWidget(
+                  title: 'About',
+                  onTap: () => showAboutDialog(
+                    context: context,
+                    applicationIcon:
+                        Image.asset('assets/images/newspaper.png', width: 80),
+                    applicationName: 'Flutter News',
+                    applicationVersion: '1.0.0',
+                  ),
+                ),
                 SizedBox(height: 10),
                 Container(
                   height: 40,
@@ -73,7 +82,10 @@ class _SettingsPageState
                   ),
                 ),
                 SizedBox(height: 10),
-                ConfigItemWidget(title: 'Logout', onTap: () {}),
+                ConfigItemWidget(
+                  title: 'Logout',
+                  onTap: controller.onLogout,
+                ),
                 SizedBox(height: 20),
                 Column(
                   children: [

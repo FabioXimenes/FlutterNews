@@ -1,3 +1,5 @@
+import 'package:flutter_news_app/app/shared/constants.dart';
+import 'package:flutter_news_app/app/shared/services/interfaces/user_auth_interface.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -7,11 +9,10 @@ part 'settings_controller.g.dart';
 class SettingsController = _SettingsControllerBase with _$SettingsController;
 
 abstract class _SettingsControllerBase with Store {
-  @observable
-  int value = 0;
+  final IUserAuth _userAuth = Modular.get();
 
-  @action
-  void increment() {
-    value++;
+  onLogout() async {
+    await _userAuth.logout();
+    Modular.to.pushReplacementNamed(AppRoutes.login);
   }
 }
