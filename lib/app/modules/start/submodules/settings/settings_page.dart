@@ -39,7 +39,7 @@ class _SettingsPageState
                       ),
                 ),
                 SizedBox(height: 30),
-                ConfigItemWidget(title: 'Redefinir senha', onTap: () {}),
+                ConfigItemWidget(title: 'Change password', onTap: () {}),
                 SizedBox(height: 20),
                 ConfigItemWidget(title: 'About', onTap: () {}),
                 SizedBox(height: 10),
