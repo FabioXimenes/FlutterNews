@@ -34,7 +34,7 @@ abstract class _BookmarkControllerBase with Store {
     asuka.showDialog(
       builder: (context) => AlertDialog(
         content: Text(
-          'Do you really want to remove bookmark?',
+          'Do you really want to remove the bookmark?',
           style: Theme.of(context).textTheme.headline5,
         ),
         actions: [
