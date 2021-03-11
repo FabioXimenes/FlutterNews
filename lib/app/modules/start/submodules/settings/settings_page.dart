@@ -17,6 +17,12 @@ class _SettingsPageState
   //use 'controller' variable to access controller
 
   @override
+  void initState() {
+    super.initState();
+    controller.getSignInMethod();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final Size _size = MediaQuery.of(context).size;
 
@@ -48,10 +54,36 @@ class _SettingsPageState
                 ConfigItemWidget(
                   title: 'Change password',
                   onTap: () {
-                    showModalBottomSheet(
-                      context: context,
-                      builder: (_) => ResetPasswordWidget(),
-                    );
+                    if (controller.signInMethod != 'google.com') {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (_) => ResetPasswordWidget(),
+                      );
+                    } else {
+                      showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                                content: Text(
+                                  'You logged with Google. To reset your password change your gmail account password.',
+                                  style: Theme.of(context).textTheme.subtitle1,
+                                ),
+                                actions: [
+                                  TextButton(
+                                    child: Text(
+                                      'OK',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headline5
+                                          .copyWith(
+                                            color:
+                                                Theme.of(context).accentColor,
+                                          ),
+                                    ),
+                                    onPressed: Navigator.of(context).pop,
+                                  )
+                                ],
+                              ));
+                    }
                   },
                 ),
                 SizedBox(height: 10),

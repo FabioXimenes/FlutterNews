@@ -11,6 +11,14 @@ class SettingsController = _SettingsControllerBase with _$SettingsController;
 abstract class _SettingsControllerBase with Store {
   final IUserAuth _userAuth = Modular.get();
 
+  @observable
+  String signInMethod;
+
+  @action
+  getSignInMethod() async {
+    signInMethod = await _userAuth.getSignInMethod();
+  }
+
   onLogout() async {
     await _userAuth.logout();
     Modular.to.pushReplacementNamed(AppRoutes.login);

@@ -59,4 +59,17 @@ class UserFirebaseAuth implements IUserAuth {
     User user = _auth.currentUser;
     return UserModel(uid: user.uid, email: user.email);
   }
+
+  @override
+  Future<String> getSignInMethod() async {
+    var userInfo = _auth.currentUser.providerData;
+
+    String signInMethod;
+
+    for (var info in userInfo) {
+      signInMethod = info.providerId;
+    }
+
+    return signInMethod;
+  }
 }
