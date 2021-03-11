@@ -30,24 +30,26 @@ class CustomModalButtonSheet extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '${_date.day}/${_date.month}/${_date.year}',
-                      style: Theme.of(context)
-                          .textTheme
-                          .subtitle1
-                          .copyWith(color: Colors.grey),
-                    ),
-                    Text(
-                      'by ${article.author}',
-                      style: Theme.of(context)
-                          .textTheme
-                          .subtitle1
-                          .copyWith(color: Colors.grey),
-                    ),
-                  ],
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '${_date.day}/${_date.month}/${_date.year}',
+                        style: Theme.of(context)
+                            .textTheme
+                            .subtitle1
+                            .copyWith(color: Colors.grey),
+                      ),
+                      Text(
+                        'by ${article.author}',
+                        style: Theme.of(context).textTheme.subtitle1.copyWith(
+                              color: Colors.grey,
+                            ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
                 ),
                 BookmarkWidget(
                   article: article,
