@@ -80,7 +80,7 @@ abstract class _SignUpControllerBase with Store {
 
       // TODO - Handle error when registering
       if (user == null){
-        print('ERRO NO REGISTRO');
+        print('REGISTER ERROR');
       } else{
         Modular.to.pop();
         Modular.to.pushReplacementNamed(AppRoutes.start);

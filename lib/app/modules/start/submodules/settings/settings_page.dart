@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_news_app/app/modules/start/submodules/settings/components/config_item_widget.dart';
+import 'package:flutter_news_app/app/modules/start/submodules/settings/components/reset_password/reset_password_widget.dart';
 import 'settings_controller.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -39,17 +40,29 @@ class _SettingsPageState
                       ),
                 ),
                 SizedBox(height: 30),
-                ConfigItemWidget(title: 'Change password', onTap: () {}),
-                SizedBox(height: 20),
+                Text(
+                  'Account',
+                  style: Theme.of(context).textTheme.headline4,
+                ),
+                SizedBox(height: 10),
                 ConfigItemWidget(
-                  title: 'About',
-                  onTap: () => showAboutDialog(
-                    context: context,
-                    applicationIcon:
-                        Image.asset('assets/images/newspaper.png', width: 80),
-                    applicationName: 'Flutter News',
-                    applicationVersion: '1.0.0',
-                  ),
+                  title: 'Change password',
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (_) => ResetPasswordWidget(),
+                    );
+                  },
+                ),
+                SizedBox(height: 10),
+                ConfigItemWidget(
+                  title: 'Logout',
+                  onTap: controller.onLogout,
+                ),
+                SizedBox(height: 30),
+                Text(
+                  'App settings',
+                  style: Theme.of(context).textTheme.headline4,
                 ),
                 SizedBox(height: 10),
                 Container(
@@ -83,10 +96,16 @@ class _SettingsPageState
                 ),
                 SizedBox(height: 10),
                 ConfigItemWidget(
-                  title: 'Logout',
-                  onTap: controller.onLogout,
+                  title: 'About',
+                  onTap: () => showAboutDialog(
+                    context: context,
+                    applicationIcon:
+                        Image.asset('assets/images/newspaper.png', width: 80),
+                    applicationName: 'Flutter News',
+                    applicationVersion: '1.0.0',
+                  ),
                 ),
-                SizedBox(height: 20),
+                Expanded(child: SizedBox()),
                 Column(
                   children: [
                     Align(
