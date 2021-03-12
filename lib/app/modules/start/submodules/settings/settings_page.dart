@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_news_app/app/modules/start/submodules/settings/components/config_item_widget.dart';
 import 'package:flutter_news_app/app/modules/start/submodules/settings/components/reset_password/reset_password_controller.dart';
 import 'package:flutter_news_app/app/modules/start/submodules/settings/components/reset_password/reset_password_widget.dart';
+import 'package:flutter_svg/svg.dart';
 import 'settings_controller.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -67,8 +68,7 @@ class _SettingsPageState
                           builder: (context) => AlertDialog(
                                 content: Text(
                                   'You logged with Google. To reset your password change your gmail account password.',
-                                  style:
-                                      Theme.of(context).textTheme.subtitle1,
+                                  style: Theme.of(context).textTheme.subtitle1,
                                 ),
                                 actions: [
                                   TextButton(
@@ -78,8 +78,8 @@ class _SettingsPageState
                                           .textTheme
                                           .headline5
                                           .copyWith(
-                                            color: Theme.of(context)
-                                                .accentColor,
+                                            color:
+                                                Theme.of(context).accentColor,
                                           ),
                                     ),
                                     onPressed: Navigator.of(context).pop,
@@ -134,9 +134,10 @@ class _SettingsPageState
                   title: 'About',
                   onTap: () => showAboutDialog(
                     context: context,
-                    applicationIcon: Image.asset(
-                        'assets/images/newspaper.png',
-                        width: 80),
+                    applicationIcon: SvgPicture.asset(
+                      'assets/images/newspaper.svg',
+                      width: 80,
+                    ),
                     applicationName: 'Flutter News',
                     applicationVersion: '1.0.0',
                   ),
@@ -146,9 +147,10 @@ class _SettingsPageState
                   children: [
                     Align(
                       alignment: Alignment.bottomCenter,
-                      child: Image.asset(
-                        'assets/images/newspaper.png',
-                        width: 120,
+                      child: SvgPicture.asset(
+                        'assets/images/newspaper.svg',
+                        width: 100,
+                        color: Theme.of(context).accentColor,
                       ),
                     ),
                     SizedBox(height: 10),
