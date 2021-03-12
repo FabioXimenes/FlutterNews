@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_news_app/app/modules/start/submodules/settings/components/config_item_widget.dart';
+import 'package:flutter_news_app/app/modules/start/submodules/settings/components/reset_password/reset_password_controller.dart';
 import 'package:flutter_news_app/app/modules/start/submodules/settings/components/reset_password/reset_password_widget.dart';
 import 'settings_controller.dart';
 
@@ -39,8 +41,8 @@ class _SettingsPageState
                   height: 15,
                 ),
                 Text(
-                  'Settings',
-                  style: Theme.of(context).textTheme.headline4.copyWith(
+                  'SETTINGS',
+                  style: Theme.of(context).textTheme.headline5.copyWith(
                         color: Theme.of(context).accentColor,
                         letterSpacing: 1.5,
                       ),
@@ -48,14 +50,14 @@ class _SettingsPageState
                 SizedBox(height: 30),
                 Text(
                   'Account',
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headline5,
                 ),
                 SizedBox(height: 10),
                 ConfigItemWidget(
                   title: 'Change password',
-                  onTap: () {
+                  onTap: () async {
                     if (controller.signInMethod != 'google.com') {
-                      showModalBottomSheet(
+                      await showModalBottomSheet(
                         context: context,
                         builder: (_) => ResetPasswordWidget(),
                       );
@@ -65,7 +67,8 @@ class _SettingsPageState
                           builder: (context) => AlertDialog(
                                 content: Text(
                                   'You logged with Google. To reset your password change your gmail account password.',
-                                  style: Theme.of(context).textTheme.subtitle1,
+                                  style:
+                                      Theme.of(context).textTheme.subtitle1,
                                 ),
                                 actions: [
                                   TextButton(
@@ -75,8 +78,8 @@ class _SettingsPageState
                                           .textTheme
                                           .headline5
                                           .copyWith(
-                                            color:
-                                                Theme.of(context).accentColor,
+                                            color: Theme.of(context)
+                                                .accentColor,
                                           ),
                                     ),
                                     onPressed: Navigator.of(context).pop,
@@ -94,7 +97,7 @@ class _SettingsPageState
                 SizedBox(height: 30),
                 Text(
                   'App settings',
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headline5,
                 ),
                 SizedBox(height: 10),
                 Container(
@@ -131,8 +134,9 @@ class _SettingsPageState
                   title: 'About',
                   onTap: () => showAboutDialog(
                     context: context,
-                    applicationIcon:
-                        Image.asset('assets/images/newspaper.png', width: 80),
+                    applicationIcon: Image.asset(
+                        'assets/images/newspaper.png',
+                        width: 80),
                     applicationName: 'Flutter News',
                     applicationVersion: '1.0.0',
                   ),
@@ -150,7 +154,7 @@ class _SettingsPageState
                     SizedBox(height: 10),
                     Text(
                       'Flutter News',
-                      style: Theme.of(context).textTheme.headline5,
+                      style: Theme.of(context).textTheme.headline4,
                     )
                   ],
                 )

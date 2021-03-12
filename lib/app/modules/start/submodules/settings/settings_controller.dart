@@ -1,3 +1,4 @@
+import 'package:flutter_news_app/app/modules/start/submodules/settings/components/reset_password/reset_password_controller.dart';
 import 'package:flutter_news_app/app/shared/constants.dart';
 import 'package:flutter_news_app/app/shared/services/interfaces/user_auth_interface.dart';
 import 'package:mobx/mobx.dart';

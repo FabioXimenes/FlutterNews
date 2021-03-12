@@ -8,5 +8,6 @@ abstract class IUserAuth implements Disposable {
   Future<UserModel> registerUserWithEmailAndPassword(AuthModel auth);
   Future<UserModel> signInWithGoogle();
   Future<String> getSignInMethod();
+  Future resetPassword(String newPassword);
   Future<void> logout();
 }

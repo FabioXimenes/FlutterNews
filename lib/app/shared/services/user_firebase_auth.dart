@@ -72,4 +72,16 @@ class UserFirebaseAuth implements IUserAuth {
 
     return signInMethod;
   }
+
+  @override
+  Future resetPassword(String newPassword) async {
+    var user = _auth.currentUser;
+
+    user
+        .updatePassword(newPassword)
+        .then((value) => null)
+        .catchError((error) {
+          // TODO - IF USER HAS NOT RECENTLY SIGNED IN, THEN REAUTHENTICATE USER
+        });
+  }
 }

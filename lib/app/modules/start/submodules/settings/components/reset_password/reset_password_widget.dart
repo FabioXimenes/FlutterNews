@@ -16,48 +16,67 @@ class _ResetPasswordWidgetState
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
       child: SingleChildScrollView(
-        child: Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Reset password',
-                style: Theme.of(context).textTheme.headline4.copyWith(
-                      color: Theme.of(context).accentColor,
-                    ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Reset password',
+              style: Theme.of(context).textTheme.headline4.copyWith(
+                    color: Theme.of(context).accentColor,
+                  ),
+            ),
+            SizedBox(height: 30),
+            Form(
+              key: controller.formKey,
+              child: Column(
+                children: [
+                  PasswordTextFieldWidget(
+                    hintText: 'New password',
+                    textFieldController: controller.passwordController,
+                  ),
+                  SizedBox(height: 10),
+                  PasswordTextFieldWidget(
+                    hintText: 'Confirm new password',
+                    textFieldController: controller.confirmPasswordController,
+                  ),
+                ],
               ),
-              SizedBox(height: 30),
-              Form(
-                key: controller.formKey,
-                child: Column(
-                  children: [
-                    PasswordTextFieldWidget(
-                      hintText: 'New password',
-                      textFieldController: controller.passwordController,
-                    ),
-                    SizedBox(height: 10),
-                    PasswordTextFieldWidget(
-                      hintText: 'Confirm new password',
-                      textFieldController: controller.passwordController,
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 20),
-              Align(
-                alignment: Alignment.center,
+            ),
+            SizedBox(height: 20),
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                height: 50,
+                width: 180,
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 child: RaisedButton(
-                  onPressed: controller.validate,
-                  child: Text(
-                    'RESET PASSWORD',
-                    style: Theme.of(context).textTheme.headline5.copyWith(
-                          color: Colors.white,
-                        ),
+                  onPressed: () async {
+                    await controller.onResetPassword();
+                    Navigator.of(context).pop();
+                  },
+                  child: Observer(
+                    builder: (_) {
+                      return controller.passwordStatus == PasswordStatus.loading
+                          ? SizedBox(
+                              width: 25,
+                              height: 25,
+                              child: CircularProgressIndicator(),
+                            )
+                          : Text(
+                              'RESET PASSWORD',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline5
+                                  .copyWith(
+                                    color: Colors.white,
+                                  ),
+                            );
+                    },
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
