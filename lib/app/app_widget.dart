@@ -11,7 +11,7 @@ class AppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       navigatorKey: Modular.navigatorKey,
       title: 'Flutter News App',
-      theme: AppTheme.lightTheme,
+      theme: AppTheme.darkTheme,
       initialRoute: '/',
       onGenerateRoute: Modular.generateRoute,
     );
