@@ -122,10 +122,13 @@ class _SettingsPageState
                             .subtitle1
                             .copyWith(fontSize: 16),
                       ),
-                      Switch(
-                        value: false,
-                        onChanged: (_) {},
-                      ),
+                      Observer(builder: (_) {
+                        return Switch(
+                          onChanged: (_) => controller.themeStore.changeTheme(),
+                          value: controller.themeStore.isDark,
+                          activeColor: Theme.of(context).accentColor,
+                        );
+                      }),
                     ],
                   ),
                 ),

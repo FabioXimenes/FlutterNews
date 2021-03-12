@@ -1,3 +1,4 @@
+import 'shared/stores/theme_store.dart';
 import 'shared/components/password_text_field/password_text_field_controller.dart';
 import 'shared/stores/bookmark_store.dart';
 import 'shared/components/bookmark/bookmark_controller.dart';
@@ -22,6 +23,7 @@ import 'package:flutter_news_app/app/shared/services/shared_preferences_service.
 class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
+        $ThemeStore,
         $PasswordTextFieldController,
         $BookmarkStore,
         $BookmarkController,
