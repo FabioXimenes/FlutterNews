@@ -37,6 +37,7 @@ class ConfigItemWidget extends StatelessWidget {
           Icon(
             Icons.chevron_right,
             size: 30,
+            color: Colors.grey,
           ),
         ]),
       ),
