@@ -26,12 +26,15 @@ class _BookmarksPageState
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
-                'YOUR SAVED ARTICLES',
-                style: Theme.of(context).textTheme.headline5.copyWith(
-                      color: Theme.of(context).accentColor,
-                      letterSpacing: 1.5,
-                    ),
+              Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: Text(
+                  'YOUR SAVED ARTICLES',
+                  style: Theme.of(context).textTheme.headline5.copyWith(
+                        color: Theme.of(context).accentColor,
+                        letterSpacing: 1.5,
+                      ),
+                ),
               ),
               SizedBox(height: 10),
               Observer(builder: (_) {

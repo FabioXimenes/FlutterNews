@@ -26,9 +26,10 @@ class CustomButtonWidget extends StatelessWidget {
             : Text(
                 title,
                 style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16),
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
       ),
     );

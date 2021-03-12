@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_news_app/app/shared/components/custom_button_widgets.dart';
+import 'package:flutter_svg/svg.dart';
 import 'sign_up_controller.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -28,13 +29,14 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  'assets/images/newspaper.png',
+                SvgPicture.asset(
+                  'assets/images/newspaper.svg',
                   width: 80,
+                  color: Theme.of(context).buttonColor,
                 ),
                 SizedBox(width: 20),
                 Text(
-                  'Flutter News App',
+                  'Flutter News',
                   textAlign: TextAlign.center,
                   style: Theme.of(context)
                       .textTheme
@@ -45,14 +47,9 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
             ),
             Divider(
               thickness: 1,
+              color: Colors.grey,
             ),
             SizedBox(height: 40),
-            // Container(
-            //   height: 180,
-            //   width: 180,
-            //   child: Image.asset('assets/images/newspaper.png'),
-            // ),
-            // SizedBox(height: 10),
             Text('Sign Up',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headline1

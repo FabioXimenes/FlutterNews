@@ -2,6 +2,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/app/shared/components/bookmark/bookmark_widget.dart';
 import 'package:flutter_news_app/app/shared/models/article_model.dart';
+import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CustomModalButtonSheet extends StatelessWidget {
@@ -30,24 +31,31 @@ class CustomModalButtonSheet extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '${_date.day}/${_date.month}/${_date.year}',
-                      style: Theme.of(context)
-                          .textTheme
-                          .subtitle1
-                          .copyWith(color: Colors.grey),
-                    ),
-                    Text(
-                      'by ${article.author}',
-                      style: Theme.of(context)
-                          .textTheme
-                          .subtitle1
-                          .copyWith(color: Colors.grey),
-                    ),
-                  ],
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        DateFormat('MMM dd, yyyy').format(_date),
+                        style: Theme.of(context)
+                            .textTheme
+                            .subtitle1
+                            .copyWith(color: Colors.grey),
+                      ),
+                      article.author != null && article.author.isNotEmpty
+                          ? Text(
+                              'by ${article.author}',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .subtitle1
+                                  .copyWith(
+                                    color: Colors.grey,
+                                  ),
+                              overflow: TextOverflow.ellipsis,
+                            )
+                          : SizedBox(),
+                    ],
+                  ),
                 ),
                 BookmarkWidget(
                   article: article,

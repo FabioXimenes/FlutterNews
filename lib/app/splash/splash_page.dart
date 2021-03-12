@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_news_app/app/shared/constants.dart';
+import 'package:flutter_svg/svg.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -53,9 +54,10 @@ class _SplashPageState extends State<SplashPage>
             ),
           ),
           Center(
-            child: Container(
+            child: SvgPicture.asset(
+              'assets/images/newspaper.svg',
               width: 200,
-              child: Image.asset('assets/images/newspaper.png'),
+              color: Colors.black,
             ),
           ),
         ],

@@ -21,23 +21,23 @@ class CustomBottomNavigationBarWidget extends StatelessWidget {
             onTap: controller.jumpToPage,
             items: [
               BottomNavigationBarItem(
-                title: Text('Trending'),
+                label: 'Trending',
                 icon: Icon(EvaIcons.trendingUpOutline),
               ),
               BottomNavigationBarItem(
-                title: Text('Categories'),
+                label: 'Categories',
                 icon: Icon(EvaIcons.gridOutline),
               ),
               BottomNavigationBarItem(
-                title: Text('Search'),
+                label: 'Search',
                 icon: Icon(EvaIcons.search),
               ),
               BottomNavigationBarItem(
-                title: Text('Saved'),
+                label: 'Saved',
                 icon: Icon(EvaIcons.bookmarkOutline),
               ),
               BottomNavigationBarItem(
-                title: Text('Config'),
+                label: 'Config',
                 icon: Icon(EvaIcons.settings),
               ),
             ],

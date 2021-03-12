@@ -5,6 +5,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_news_app/app/shared/components/custom_button_widgets.dart';
 import 'package:flutter_news_app/app/shared/constants.dart';
+import 'package:flutter_svg/svg.dart';
 import 'login_controller.dart';
 
 class LoginPage extends StatefulWidget {
@@ -30,11 +31,14 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
             Container(
               height: 180,
               width: 180,
-              child: Image.asset('assets/images/newspaper.png'),
+              child: SvgPicture.asset(
+                'assets/images/newspaper.svg',
+                color: Theme.of(context).buttonColor,
+              ),
             ),
             SizedBox(height: 10),
             Text(
-              'Flutter News App',
+              'Flutter News',
               textAlign: TextAlign.center,
               style: Theme.of(context)
                   .textTheme
@@ -95,8 +99,8 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                   if (controller.status == UserStatus.error) {
                     showDialog(
                       context: context,
-                      builder: (_) => AlertDialog(
-                        
+                      builder: (context) => AlertDialog(
+                        backgroundColor: Theme.of(context).backgroundColor,
                         title: Text('Error while logging in!',
                             style: Theme.of(context).textTheme.headline4),
                         content: Text(
@@ -104,18 +108,15 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                           style: Theme.of(context).textTheme.subtitle1,
                         ),
                         actions: [
-                          RichText(
-                            text: TextSpan(
-                              text: 'OK',
+                          TextButton(
+                            child: Text(
+                              'OK',
                               style: TextStyle(
-                                color: Colors.blue,
-                                fontSize: 16
+                                color: Theme.of(context).accentColor,
+                                fontSize: 16,
                               ),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  Modular.to.pop();
-                                },
                             ),
+                            onPressed: Navigator.of(context).pop,
                           )
                         ],
                       ),

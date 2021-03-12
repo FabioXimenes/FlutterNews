@@ -8,6 +8,7 @@ import 'package:flutter_news_app/app/modules/start/submodules/categories/categor
 import 'package:flutter_news_app/app/modules/start/submodules/search/search_module.dart';
 import 'package:flutter_news_app/app/modules/start/submodules/trending/trending_module.dart';
 import 'start_controller.dart';
+import 'submodules/settings/settings_module.dart';
 
 class StartPage extends StatefulWidget {
   final String title;
@@ -37,7 +38,7 @@ class _StartPageState extends ModularState<StartPage, StartController> {
           RouterOutlet(module: CategoriesModule()),
           RouterOutlet(module: SearchModule()),
           RouterOutlet(module: BookmarksModule()),
-          Container(color: Colors.red),
+          RouterOutlet(module: SettingsModule()),
         ],
       ),
       bottomNavigationBar: CustomBottomNavigationBarWidget(
