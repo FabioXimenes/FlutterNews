@@ -41,18 +41,11 @@ mixin _$ThemeStore on _ThemeStoreBase, Store {
     });
   }
 
-  final _$_ThemeStoreBaseActionController =
-      ActionController(name: '_ThemeStoreBase');
+  final _$changeThemeAsyncAction = AsyncAction('_ThemeStoreBase.changeTheme');
 
   @override
-  dynamic changeTheme() {
-    final _$actionInfo = _$_ThemeStoreBaseActionController.startAction(
-        name: '_ThemeStoreBase.changeTheme');
-    try {
-      return super.changeTheme();
-    } finally {
-      _$_ThemeStoreBaseActionController.endAction(_$actionInfo);
-    }
+  Future<void> changeTheme() {
+    return _$changeThemeAsyncAction.run(() => super.changeTheme());
   }
 
   @override

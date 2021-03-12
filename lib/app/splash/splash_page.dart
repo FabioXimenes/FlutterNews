@@ -57,6 +57,7 @@ class _SplashPageState extends State<SplashPage>
             child: SvgPicture.asset(
               'assets/images/newspaper.svg',
               width: 200,
+              color: Colors.black,
             ),
           ),
         ],

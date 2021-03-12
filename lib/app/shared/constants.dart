@@ -11,6 +11,7 @@ class AppRoutes {
 
 class AppStorage {
   static const bookmarks = 'bookmarks';
+  static const themeMode = 'themeMode';
 }
 
 class ApiUrls {
