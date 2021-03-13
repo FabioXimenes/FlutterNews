@@ -21,9 +21,7 @@ class _ResetPasswordWidgetState
           children: [
             Text(
               'Reset password',
-              style: Theme.of(context).textTheme.headline4.copyWith(
-                    color: Theme.of(context).accentColor,
-                  ),
+              style: Theme.of(context).textTheme.headline4,
             ),
             SizedBox(height: 30),
             Form(
@@ -68,7 +66,11 @@ class _ResetPasswordWidgetState
                                   .textTheme
                                   .headline5
                                   .copyWith(
-                                    color: Colors.white,
+                                    color: controller.themeStore.themeMode
+                                                .brightness ==
+                                            Brightness.dark
+                                        ? Colors.black
+                                        : Colors.white,
                                   ),
                             );
                     },

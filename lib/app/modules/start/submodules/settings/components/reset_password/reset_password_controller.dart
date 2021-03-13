@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/app/shared/services/interfaces/user_auth_interface.dart';
+import 'package:flutter_news_app/app/shared/stores/theme_store.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:asuka/asuka.dart' as asuka;
@@ -19,6 +20,7 @@ enum PasswordStatus {
 }
 
 abstract class _ResetPasswordControllerBase with Store {
+  final ThemeStore themeStore = Modular.get();
   final formKey = GlobalKey<FormState>();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();

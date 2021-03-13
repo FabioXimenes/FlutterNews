@@ -37,7 +37,10 @@ class _SearchPageState extends ModularState<SearchPage, SearchController> {
                       padding:
                           EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                       decoration: BoxDecoration(
-                        color: Theme.of(context).canvasColor,
+                        color: controller.themeStore.themeMode.brightness ==
+                                Brightness.dark
+                            ? Colors.white.withOpacity(0.2)
+                            : Colors.grey[200],
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: Row(
