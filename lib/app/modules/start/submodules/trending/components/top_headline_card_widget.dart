@@ -36,7 +36,7 @@ class TopHeadlinePosterWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 45,
+              height: 55,
               padding: const EdgeInsets.only(right: 15.0),
               child: Text(
                 article.title,
