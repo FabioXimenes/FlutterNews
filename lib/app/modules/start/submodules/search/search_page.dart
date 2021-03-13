@@ -37,8 +37,9 @@ class _SearchPageState extends ModularState<SearchPage, SearchController> {
                       padding:
                           EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                       decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          borderRadius: BorderRadius.circular(5)),
+                        color: Theme.of(context).canvasColor,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
@@ -52,6 +53,7 @@ class _SearchPageState extends ModularState<SearchPage, SearchController> {
                               height: 25,
                               child: TextFormField(
                                 controller: controller.searchFieldController,
+                                cursorColor: Theme.of(context).accentColor,
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                 ),
