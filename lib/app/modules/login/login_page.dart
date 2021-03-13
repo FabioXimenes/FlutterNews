@@ -57,6 +57,10 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
                     ),
                     onChanged: controller.setEmail,
                   ),
@@ -69,14 +73,21 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                         suffixIcon: Observer(builder: (_) {
                           return IconButton(
                             icon: controller.showPassword
-                                ? Icon(Icons.visibility_off)
-                                : Icon(Icons.visibility),
+                                ? Icon(Icons.visibility_off, color: Colors.grey)
+                                : Icon(
+                                    Icons.visibility,
+                                    color: Colors.grey,
+                                  ),
                             onPressed: controller.changePasswordVisibility,
                           );
                         }),
                         hintText: 'Password',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(color: Colors.grey),
                         ),
                       ),
                       onChanged: controller.setPassword,

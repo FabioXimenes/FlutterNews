@@ -9,6 +9,7 @@ class AppTheme {
     backgroundColor: AppColors.primaryColorLight,
     scaffoldBackgroundColor: AppColors.primaryColorLight,
     accentColor: AppColors.accentColor,
+    focusColor: Colors.grey,
     textTheme: TextTheme(
       subtitle1: TextStyle(
         fontSize: 14,
@@ -69,6 +70,7 @@ class AppTheme {
     backgroundColor: AppColors.primaryColorDark,
     scaffoldBackgroundColor: AppColors.primaryColorDark,
     accentColor: AppColors.accentColor,
+    focusColor: Colors.grey,
     textTheme: TextTheme(
       subtitle1: TextStyle(
         fontSize: 14,
