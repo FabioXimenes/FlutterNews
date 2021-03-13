@@ -9,7 +9,8 @@ class TodaysReadWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Container(
+      height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: articles.length,
