@@ -64,7 +64,10 @@ class _DatePickerWidgetState
                 ),
               ),
               SizedBox(width: 5),
-              Icon(Icons.calendar_today),
+              Icon(
+                Icons.calendar_today,
+                color: Colors.grey,
+              ),
             ],
           ),
         ),
