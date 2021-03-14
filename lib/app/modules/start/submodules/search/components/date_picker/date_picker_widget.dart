@@ -41,8 +41,9 @@ class _DatePickerWidgetState
               firstDate: DateTime.utc(now.year - 1),
               lastDate: widget.title == 'from' ? controller.queryStore.to : now,
             );
-
-            controller.handleDateChange(selectedDate);
+            if (selectedDate != null) {
+              controller.handleDateChange(selectedDate);
+            }
           },
           child: Row(
             children: [
@@ -64,7 +65,10 @@ class _DatePickerWidgetState
                 ),
               ),
               SizedBox(width: 5),
-              Icon(Icons.calendar_today),
+              Icon(
+                Icons.calendar_today,
+                color: Colors.grey,
+              ),
             ],
           ),
         ),

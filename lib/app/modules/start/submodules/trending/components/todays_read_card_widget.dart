@@ -34,7 +34,7 @@ class TodaysReadCardWidget extends StatelessWidget {
           Container(
             height: 120,
             width: 120,
-            margin: EdgeInsets.only(right: 30),
+            margin: EdgeInsets.only(right: 20),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
@@ -65,9 +65,10 @@ class TodaysReadCardWidget extends StatelessWidget {
             width: 120,
             child: Text(
               article.title,
+              style: Theme.of(context).textTheme.headline6,
               overflow: TextOverflow.ellipsis,
               maxLines: 3,
-              style: Theme.of(context).textTheme.headline6,
+              textAlign: TextAlign.left,
             ),
           )
         ],

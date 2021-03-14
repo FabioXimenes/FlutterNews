@@ -80,8 +80,7 @@ class CustomModalButtonSheet extends StatelessWidget {
               article.description,
               style: Theme.of(context)
                   .textTheme
-                  .subtitle1
-                  .copyWith(color: Colors.grey[900]),
+                  .subtitle1,
               // overflow: TextOverflow.ellipsis,
             ),
           ],

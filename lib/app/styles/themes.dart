@@ -9,6 +9,7 @@ class AppTheme {
     backgroundColor: AppColors.primaryColorLight,
     scaffoldBackgroundColor: AppColors.primaryColorLight,
     accentColor: AppColors.accentColor,
+    focusColor: Colors.grey,
     textTheme: TextTheme(
       subtitle1: TextStyle(
         fontSize: 14,
@@ -51,7 +52,7 @@ class AppTheme {
         color: AppColors.textPrimaryColorLight,
       ),
     ),
-    iconTheme: IconThemeData(color: AppColors.buttonColorLight),
+    iconTheme: IconThemeData(color: AppColors.iconColorLight),
     buttonColor: AppColors.buttonColorLight,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
@@ -69,6 +70,7 @@ class AppTheme {
     backgroundColor: AppColors.primaryColorDark,
     scaffoldBackgroundColor: AppColors.primaryColorDark,
     accentColor: AppColors.accentColor,
+    focusColor: Colors.grey,
     textTheme: TextTheme(
       subtitle1: TextStyle(
         fontSize: 14,
@@ -111,7 +113,7 @@ class AppTheme {
         color: AppColors.textPrimaryColorDark,
       ),
     ),
-    iconTheme: IconThemeData(color: AppColors.buttonColorLight),
+    iconTheme: IconThemeData(color: AppColors.iconColorDark),
     buttonColor: AppColors.buttonColorDark,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,

@@ -29,18 +29,15 @@ class _TrendingPageState
 
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 50, left: 24, right: 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        padding: const EdgeInsets.only(top: 30, left: 16, right: 16),
+        child: ListView(
           children: <Widget>[
             Text(
               'TRENDING',
-              style: Theme.of(context)
-                  .textTheme
-                  .headline5
-                  .copyWith(color: Theme.of(context).accentColor, letterSpacing: 2),
+              style: Theme.of(context).textTheme.headline5.copyWith(
+                  color: Theme.of(context).accentColor, letterSpacing: 2),
             ),
-            SizedBox(height: 5),
+            SizedBox(height: 10),
             Observer(
               builder: (_) {
                 return controller.articlesResponse != null
@@ -53,19 +50,19 @@ class _TrendingPageState
                       );
               },
             ),
-            // Divider(height: 1, thickness: 1, color: Colors.grey),
             Text(
               'Today\'s read',
               style: Theme.of(context).textTheme.headline4,
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 15),
             Observer(
               builder: (_) {
                 return controller.articlesResponse != null
                     ? controller.articlesResponse.status == 'error'
                         ? Text('ERROR')
                         : TodaysReadWidget(
-                            articles: controller.articlesResponse.articles.sublist(1),
+                            articles:
+                                controller.articlesResponse.articles.sublist(1),
                           )
                     : Center(
                         child: CircularProgressIndicator(),

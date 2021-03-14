@@ -4,6 +4,7 @@ import 'package:flutter_news_app/app/shared/models/articles_response_model.dart'
 import 'package:flutter_news_app/app/shared/models/query_model.dart';
 import 'package:flutter_news_app/app/shared/repositories/article_repository.dart';
 import 'package:flutter_news_app/app/shared/stores/query_store.dart';
+import 'package:flutter_news_app/app/shared/stores/theme_store.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -21,6 +22,7 @@ enum LoadingStatus {
 abstract class _SearchControllerBase with Store {
   final ArticleRepository _articleRepository = Modular.get();
   final QueryStore _queryStore = Modular.get();
+  final ThemeStore themeStore = Modular.get();
 
   final searchFieldController = TextEditingController();
 

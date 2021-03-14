@@ -31,17 +31,31 @@ class _PasswordTextFieldWidgetState
           suffixIcon: Observer(builder: (_) {
             return IconButton(
               icon: controller.showPassword
-                  ? Icon(Icons.visibility_off)
-                  : Icon(Icons.visibility),
+                  ? Icon(
+                      Icons.visibility_off,
+                      color: Colors.grey,
+                    )
+                  : Icon(
+                      Icons.visibility,
+                      color: Colors.grey,
+                    ),
               onPressed: controller.changePasswordVisibility,
             );
           }),
           hintText: widget.hintText,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(
+              color: Colors.grey,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(
+              color: Colors.grey,
+            ),
           ),
         ),
-        // onChanged: controller.setPassword,
       );
     });
   }

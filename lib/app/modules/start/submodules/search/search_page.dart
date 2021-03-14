@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_news_app/app/shared/components/articles_list_view_widget.dart';
+import 'package:flutter_news_app/app/styles/colors.dart';
 import 'components/date_picker/date_picker_widget.dart';
 import 'search_controller.dart';
 
@@ -37,8 +38,12 @@ class _SearchPageState extends ModularState<SearchPage, SearchController> {
                       padding:
                           EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                       decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          borderRadius: BorderRadius.circular(5)),
+                        color: controller.themeStore.themeMode.brightness ==
+                                Brightness.dark
+                            ? Colors.white.withOpacity(0.2)
+                            : Colors.grey[200],
+                        borderRadius: BorderRadius.circular(5),
+                      ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
@@ -52,6 +57,7 @@ class _SearchPageState extends ModularState<SearchPage, SearchController> {
                               height: 25,
                               child: TextFormField(
                                 controller: controller.searchFieldController,
+                                cursorColor: Theme.of(context).accentColor,
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                 ),
@@ -101,7 +107,7 @@ class _SearchPageState extends ModularState<SearchPage, SearchController> {
                     duration: Duration(milliseconds: 200),
                     height: controller.isFiltering ? 180 : 0,
                     width: _size.width * 0.9,
-                    color: Colors.grey[200],
+                    color: Colors.grey.withOpacity(0.5),
                     child: Column(
                       children: [
                         SizedBox(height: 10),
@@ -142,7 +148,9 @@ class _SearchPageState extends ModularState<SearchPage, SearchController> {
                             'UPDATE',
                             style:
                                 Theme.of(context).textTheme.headline5.copyWith(
-                                      color: Colors.white,
+                                      color: controller.themeStore.isDark
+                                          ? AppColors.primaryColorDark
+                                          : AppColors.primaryColorLight,
                                     ),
                           ),
                         )

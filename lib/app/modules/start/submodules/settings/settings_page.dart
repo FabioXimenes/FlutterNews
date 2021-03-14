@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_news_app/app/modules/start/submodules/settings/components/config_item_widget.dart';
-import 'package:flutter_news_app/app/modules/start/submodules/settings/components/reset_password/reset_password_controller.dart';
 import 'package:flutter_news_app/app/modules/start/submodules/settings/components/reset_password/reset_password_widget.dart';
 import 'package:flutter_svg/svg.dart';
 import 'settings_controller.dart';
@@ -140,6 +139,7 @@ class _SettingsPageState
                     applicationIcon: SvgPicture.asset(
                       'assets/images/newspaper.svg',
                       width: 80,
+                      color: Theme.of(context).iconTheme.color,
                     ),
                     applicationName: 'Flutter News',
                     applicationVersion: '1.0.0',
@@ -152,8 +152,8 @@ class _SettingsPageState
                       alignment: Alignment.bottomCenter,
                       child: SvgPicture.asset(
                         'assets/images/newspaper.svg',
-                        width: 100,
-                        color: Theme.of(context).accentColor,
+                        width: 110,
+                        color: Theme.of(context).iconTheme.color,
                       ),
                     ),
                     SizedBox(height: 10),
