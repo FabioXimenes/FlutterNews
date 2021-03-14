@@ -148,9 +148,8 @@ class _SearchPageState extends ModularState<SearchPage, SearchController> {
                             'UPDATE',
                             style:
                                 Theme.of(context).textTheme.headline5.copyWith(
-                                      color: controller.themeStore.isDark
-                                          ? AppColors.primaryColorDark
-                                          : AppColors.primaryColorLight,
+                                      color: Colors.white,
+                                      letterSpacing: 1.0
                                     ),
                           ),
                         )
