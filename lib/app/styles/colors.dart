@@ -7,7 +7,7 @@ class AppColors {
 
   static const Color primaryColorDark = Color(0xFF333333);
   static const Color textPrimaryColorDark = Colors.white;
-  static const Color buttonColorDark = Colors.white;
+  static const Color buttonColorDark = Colors.black;
 
   static Color accentColor = Color(0xFFFF8A65);
 }
