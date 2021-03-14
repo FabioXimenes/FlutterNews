@@ -139,7 +139,7 @@ class _SettingsPageState
                     applicationIcon: SvgPicture.asset(
                       'assets/images/newspaper.svg',
                       width: 80,
-                      color: Theme.of(context).accentColor,
+                      color: Theme.of(context).iconTheme.color,
                     ),
                     applicationName: 'Flutter News',
                     applicationVersion: '1.0.0',
@@ -153,7 +153,7 @@ class _SettingsPageState
                       child: SvgPicture.asset(
                         'assets/images/newspaper.svg',
                         width: 110,
-                        color: Theme.of(context).accentColor,
+                        color: Theme.of(context).iconTheme.color,
                       ),
                     ),
                     SizedBox(height: 10),

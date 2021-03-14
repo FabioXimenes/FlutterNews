@@ -32,7 +32,7 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
                 SvgPicture.asset(
                   'assets/images/newspaper.svg',
                   width: 80,
-                  color: Theme.of(context).buttonColor,
+                  color: Theme.of(context).iconTheme.color,
                 ),
                 SizedBox(width: 20),
                 Text(

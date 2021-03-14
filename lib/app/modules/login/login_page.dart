@@ -33,7 +33,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
               width: 180,
               child: SvgPicture.asset(
                 'assets/images/newspaper.svg',
-                color: Theme.of(context).buttonColor,
+                color: Theme.of(context).iconTheme.color,
               ),
             ),
             SizedBox(height: 10),

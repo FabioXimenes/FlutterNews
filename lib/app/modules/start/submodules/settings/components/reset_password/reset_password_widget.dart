@@ -50,7 +50,11 @@ class _ResetPasswordWidgetState
                 child: RaisedButton(
                   onPressed: () async {
                     await controller.onResetPassword();
-                    Navigator.of(context).pop();
+
+                    if (controller.passwordStatus == PasswordStatus.success) {
+                      Navigator.of(context).pop();
+                      controller.passwordStatus = PasswordStatus.waiting;
+                    }
                   },
                   child: Observer(
                     builder: (_) {
@@ -65,13 +69,7 @@ class _ResetPasswordWidgetState
                               style: Theme.of(context)
                                   .textTheme
                                   .headline5
-                                  .copyWith(
-                                    color: controller.themeStore.themeMode
-                                                .brightness ==
-                                            Brightness.dark
-                                        ? Colors.black
-                                        : Colors.white,
-                                  ),
+                                  .copyWith(color: Colors.white),
                             );
                     },
                   ),

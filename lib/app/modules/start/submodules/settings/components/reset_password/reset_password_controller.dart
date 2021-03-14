@@ -35,13 +35,14 @@ abstract class _ResetPasswordControllerBase with Store {
 
     if (formKey.currentState.validate()) {
       _userAuth.resetPassword(passwordController.text);
-    }
-    
-    await Future.delayed(Duration(milliseconds: 600));
-    passwordStatus = PasswordStatus.success;
-    await Future.delayed(Duration(milliseconds: 600));
 
-    asuka.showSnackBar(SnackBar(content: Text('Password changed!')));
-    passwordStatus = PasswordStatus.waiting;
+      await Future.delayed(Duration(milliseconds: 600));
+      passwordStatus = PasswordStatus.success;
+      await Future.delayed(Duration(milliseconds: 600));
+
+      asuka.showSnackBar(SnackBar(content: Text('Password changed!')));
+    } else {
+      passwordStatus = PasswordStatus.error;
+    }
   }
 }

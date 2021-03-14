@@ -52,7 +52,7 @@ class AppTheme {
         color: AppColors.textPrimaryColorLight,
       ),
     ),
-    iconTheme: IconThemeData(color: AppColors.buttonColorLight),
+    iconTheme: IconThemeData(color: AppColors.iconColorLight),
     buttonColor: AppColors.buttonColorLight,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
@@ -113,7 +113,7 @@ class AppTheme {
         color: AppColors.textPrimaryColorDark,
       ),
     ),
-    iconTheme: IconThemeData(color: AppColors.buttonColorLight),
+    iconTheme: IconThemeData(color: AppColors.iconColorDark),
     buttonColor: AppColors.buttonColorDark,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
