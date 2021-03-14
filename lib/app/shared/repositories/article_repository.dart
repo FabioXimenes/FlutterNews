@@ -1,11 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_news_app/app/shared/api_key.dart';
 import 'package:flutter_news_app/app/shared/constants.dart';
-import 'package:flutter_news_app/app/shared/constants/categories.dart';
 import 'package:flutter_news_app/app/shared/http/custom_dio.dart';
 import 'package:flutter_news_app/app/shared/models/articles_response_model.dart';
 import 'package:flutter_news_app/app/shared/models/query_model.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ArticleRepository {
   final CustomDio _client = Modular.get();
@@ -14,7 +13,7 @@ class ArticleRepository {
     String url = ApiUrls.topHeadlines;
 
     Map<String, dynamic> params = {
-      'apiKey': API_KEY,
+      'apiKey': env['API_KEY'],
       'country': 'us',
     };
 
@@ -31,7 +30,7 @@ class ArticleRepository {
     String url = ApiUrls.topHeadlines;
 
     Map<String, dynamic> params = {
-      'apiKey': API_KEY,
+      'apiKey': env['API_KEY'],
       'country': 'us',
       'category': category,
     };
@@ -48,7 +47,7 @@ class ArticleRepository {
     String url = ApiUrls.everything;
 
     Map<String, dynamic> params = {
-      'apiKey': API_KEY,
+      'apiKey': env['API_KEY'],
       'q': query.message.toLowerCase(),
       'sortBy': query.sortBy,
       'language': 'en',
