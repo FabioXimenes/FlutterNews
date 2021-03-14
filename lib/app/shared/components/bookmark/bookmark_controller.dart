@@ -41,7 +41,7 @@ abstract class _BookmarkControllerBase with Store {
           TextButton(
             onPressed: Navigator.of(context).pop,
             child: Text(
-              "Cancelar",
+              "Cancel",
               style: TextStyle(
                 fontSize: 15,
                 color: Theme.of(context).accentColor,

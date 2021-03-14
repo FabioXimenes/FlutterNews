@@ -29,7 +29,7 @@ class _TrendingPageState
 
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 50, left: 16, right: 16),
+        padding: const EdgeInsets.only(top: 30, left: 16, right: 16),
         child: ListView(
           children: <Widget>[
             Text(
