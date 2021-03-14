@@ -27,10 +27,9 @@ class _BookmarkWidgetState
   void initState() {
     super.initState();
     controller.checkArticleBookmark(widget.article);
-    controller.bookmarkStore.bookmarksLength
-        .addListener(() {
-          controller.checkArticleBookmark(widget.article);
-        });
+    controller.bookmarkStore.bookmarksLength.addListener(() {
+      controller.checkArticleBookmark(widget.article);
+    });
   }
 
   @override
@@ -41,13 +40,13 @@ class _BookmarkWidgetState
           onTap: () => controller.isBookmarked
               ? controller.removeBookmark(widget.article)
               : controller.setBookmark(widget.article),
-          child: Icon(
-            controller.isBookmarked
-                ? EvaIcons.bookmark
-                : EvaIcons.bookmarkOutline,
-            size: widget.size,
-            color: widget.color,
-          ),
+            child: Icon(
+              controller.isBookmarked
+                  ? EvaIcons.bookmark
+                  : EvaIcons.bookmarkOutline,
+              size: widget.size,
+              color: widget.color,
+            ),
         );
       },
     );

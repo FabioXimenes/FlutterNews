@@ -36,38 +36,30 @@ class TodaysReadCardWidget extends StatelessWidget {
             width: 120,
             margin: EdgeInsets.only(right: 20),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(article.urlToImage))),
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: NetworkImage(article.urlToImage),
+              ),
+            ),
+            child: Align(
+              alignment: Alignment.topRight,
+              child: BookmarkWidget(
+                article: article,
+                color: Theme.of(context).accentColor,
+                size: 25,
+              ),
+            ),
           ),
           SizedBox(height: 3),
           Container(
-            width: 120,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'CATEGORY',
-                  style: Theme.of(context).textTheme.headline6.copyWith(
-                      color: Theme.of(context).accentColor, letterSpacing: 1),
-                ),
-                BookmarkWidget(
-                  article: article,
-                  color: Theme.of(context).accentColor,
-                  size: 20,
-                )
-              ],
-            ),
-          ),
-          Container(
-            height: 48,
+            height: 60,
             width: 120,
             child: Text(
               article.title,
               style: Theme.of(context).textTheme.headline6,
               overflow: TextOverflow.ellipsis,
-              maxLines: 3,
+              maxLines: 4,
               textAlign: TextAlign.left,
             ),
           )
