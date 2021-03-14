@@ -3,6 +3,7 @@ import 'package:flutter_news_app/app/shared/constants/categories.dart';
 import 'package:flutter_news_app/app/shared/models/articles_response_model.dart';
 import 'package:flutter_news_app/app/shared/repositories/article_repository.dart';
 import 'package:flutter_news_app/app/shared/repositories/user_repository.dart';
+import 'package:flutter_news_app/app/shared/stores/theme_store.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -14,6 +15,7 @@ class CategoriesController = _CategoriesControllerBase
 
 abstract class _CategoriesControllerBase with Store {
   final ArticleRepository _articleRepository = Modular.get();
+  final ThemeStore themeStore = Modular.get();
 
   final List<Tab> tabs = [
     Tab(text: 'Business'),

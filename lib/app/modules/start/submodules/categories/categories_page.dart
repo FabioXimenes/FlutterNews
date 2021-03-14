@@ -60,14 +60,17 @@ class _CategoriesPageState
                   controller: controller.tabController,
                   isScrollable: true,
                   labelColor: Colors.white,
-                  // labelStyle: Theme.of(context).textTheme.headline5,
-                  unselectedLabelColor: Colors.black,
+                  labelStyle: Theme.of(context).textTheme.headline5,
+                  unselectedLabelColor: controller.themeStore.isDark
+                      ? Colors.white
+                      : Colors.black,
                   physics: BouncingScrollPhysics(),
                   labelPadding:
                       EdgeInsets.symmetric(horizontal: 15, vertical: 0),
                   indicator: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(25)),
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(25),
+                  ),
                   indicatorColor: Colors.amber,
                   indicatorSize: TabBarIndicatorSize.tab,
                 ),
