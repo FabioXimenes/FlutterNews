@@ -13,6 +13,7 @@ class SignUpController = _SignUpControllerBase with _$SignUpController;
 
 abstract class _SignUpControllerBase with Store {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final passwordController = TextEditingController();
   final UserRepository userAuth = Modular.get();
 
   @observable
@@ -20,9 +21,6 @@ abstract class _SignUpControllerBase with Store {
 
   @observable
   String email;
-
-  @observable
-  String password;
 
   @observable
   String confirmPassword;
@@ -33,16 +31,14 @@ abstract class _SignUpControllerBase with Store {
   @observable
   bool showPassword = false;
 
+  @observable
+  UserStatus userStatus = UserStatus.stopped;
+
   @action
   void setEmail(String value) => email = value;
 
   @action
-  void setPassword(String value) => password = value;
-
-  @action setConfirmPassword(String value) => confirmPassword = value;
-
-  @action
-  void changePasswordVisibility() => showPassword = !showPassword;
+  setConfirmPassword(String value) => confirmPassword = value;
 
   @action
   String validateEmail(String value) {
@@ -59,14 +55,14 @@ abstract class _SignUpControllerBase with Store {
     String pattern =
         r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{6,}$';
     if (!RegExp(pattern).hasMatch(value)) {
-      return 'The password must contain: \n \t * At least 6 characters \n \t * At least 1 upper case letter; \n \t * At least 1 lower case letter; \n \t * At least 1 number; \n \t * At least 1 special character;' ;
+      return 'The password must contain: \n \t * At least 6 characters \n \t * At least 1 upper case letter; \n \t * At least 1 lower case letter; \n \t * At least 1 number; \n \t * At least 1 special character;';
     }
     return null;
   }
 
   @action
   String validateConfirmPassword(String value) {
-    if (value != password) {
+    if (value != passwordController.text) {
       return 'The passwords do not match!';
     }
     return null;
@@ -74,18 +70,20 @@ abstract class _SignUpControllerBase with Store {
 
   @action
   Future handleRegister() async {
+    userStatus = UserStatus.loading;
     if (formKey.currentState.validate()) {
-      AuthModel auth = AuthModel(email: email, password: password);
+      AuthModel auth =
+          AuthModel(email: email, password: passwordController.text);
       UserModel user = await userAuth.registerUserWithEmailAndPassword(auth);
 
-      // TODO - Handle error when registering
-      if (user == null){
-        print('REGISTER ERROR');
-      } else{
+      if (user == null) {
+        userStatus = UserStatus.error;
+      } else {
         Modular.to.pop();
         Modular.to.pushReplacementNamed(AppRoutes.start);
       }
-
+    } else {
+      userStatus = UserStatus.stopped;
     }
   }
 }

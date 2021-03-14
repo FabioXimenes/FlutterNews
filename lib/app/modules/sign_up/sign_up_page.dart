@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_news_app/app/shared/components/custom_button_widgets.dart';
+import 'package:flutter_news_app/app/shared/components/password_text_field/password_text_field_widget.dart';
+import 'package:flutter_news_app/app/shared/constants.dart';
 import 'package:flutter_svg/svg.dart';
 import 'sign_up_controller.dart';
 
@@ -23,7 +25,6 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(
-          // mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             SizedBox(height: 16),
             Row(
@@ -52,12 +53,10 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
             SizedBox(height: 40),
             Text('Sign Up',
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline1
-                // .copyWith(color: Colors.deepOrange[300]),
-                ),
+                style: Theme.of(context).textTheme.headline1),
             SizedBox(height: 10),
             Text(
-              'Please sign up to know all the relevant facts that are occuring around the world!',
+              'Sign up to know the most relevant facts around the world!',
               style: Theme.of(context)
                   .textTheme
                   .headline5
@@ -85,63 +84,65 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
                     onChanged: controller.setEmail,
                   ),
                   SizedBox(height: 10),
-                  Observer(builder: (_) {
-                    return TextFormField(
-                      validator: controller.validatePassword,
-                      obscureText: !controller.showPassword,
-                      decoration: InputDecoration(
-                        suffixIcon: Observer(builder: (_) {
-                          return IconButton(
-                            icon: controller.showPassword
-                                ? Icon(
-                                    Icons.visibility_off,
-                                    color: Colors.grey,
-                                  )
-                                : Icon(
-                                    Icons.visibility,
-                                    color: Colors.grey,
-                                  ),
-                            onPressed: controller.changePasswordVisibility,
-                          );
-                        }),
-                        hintText: 'Password',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: Colors.grey),
-                        ),
-                      ),
-                      onChanged: controller.setPassword,
-                    );
-                  }),
+                  PasswordTextFieldWidget(
+                    hintText: 'Password',
+                    textFieldController: controller.passwordController,
+                  ),
                   SizedBox(height: 10),
-                  Observer(builder: (_) {
-                    return TextFormField(
-                      validator: controller.validateConfirmPassword,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        hintText: 'Confirm password',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: Colors.grey),
-                        ),
+                  TextFormField(
+                    validator: controller.validateConfirmPassword,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      hintText: 'Confirm password',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      onChanged: controller.setConfirmPassword,
-                    );
-                  }),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
+                    ),
+                    onChanged: controller.setConfirmPassword,
+                  ),
                 ],
               ),
             ),
             SizedBox(height: 25),
-            CustomButtonWidget(
-              title: 'Register',
-              onPressed: controller.handleRegister,
-            ),
+            Observer(builder: (_) {
+              return CustomButtonWidget(
+                title: 'Register',
+                onPressed: () {
+                  controller.handleRegister();
+                  if (controller.userStatus == UserStatus.error) {
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        backgroundColor: Theme.of(context).backgroundColor,
+                        title: Text('Error while signing up! Try again later.',
+                            style: Theme.of(context).textTheme.headline4),
+                        content: Text(
+                          controller.user.errorMessage,
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                        actions: [
+                          TextButton(
+                            child: Text(
+                              'OK',
+                              style: TextStyle(
+                                color: Theme.of(context).accentColor,
+                                fontSize: 16,
+                              ),
+                            ),
+                            onPressed: Navigator.of(context).pop,
+                          )
+                        ],
+                      ),
+                    );
+                  }
+                },
+                isLoading: controller.userStatus == UserStatus.loading,
+              );
+            }),
             SizedBox(height: 15),
             RichText(
               textAlign: TextAlign.center,

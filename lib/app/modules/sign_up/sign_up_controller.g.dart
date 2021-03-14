@@ -49,21 +49,6 @@ mixin _$SignUpController on _SignUpControllerBase, Store {
     });
   }
 
-  final _$passwordAtom = Atom(name: '_SignUpControllerBase.password');
-
-  @override
-  String get password {
-    _$passwordAtom.reportRead();
-    return super.password;
-  }
-
-  @override
-  set password(String value) {
-    _$passwordAtom.reportWrite(value, super.password, () {
-      super.password = value;
-    });
-  }
-
   final _$confirmPasswordAtom =
       Atom(name: '_SignUpControllerBase.confirmPassword');
 
@@ -110,6 +95,21 @@ mixin _$SignUpController on _SignUpControllerBase, Store {
     });
   }
 
+  final _$userStatusAtom = Atom(name: '_SignUpControllerBase.userStatus');
+
+  @override
+  UserStatus get userStatus {
+    _$userStatusAtom.reportRead();
+    return super.userStatus;
+  }
+
+  @override
+  set userStatus(UserStatus value) {
+    _$userStatusAtom.reportWrite(value, super.userStatus, () {
+      super.userStatus = value;
+    });
+  }
+
   final _$handleRegisterAsyncAction =
       AsyncAction('_SignUpControllerBase.handleRegister');
 
@@ -133,33 +133,11 @@ mixin _$SignUpController on _SignUpControllerBase, Store {
   }
 
   @override
-  void setPassword(String value) {
-    final _$actionInfo = _$_SignUpControllerBaseActionController.startAction(
-        name: '_SignUpControllerBase.setPassword');
-    try {
-      return super.setPassword(value);
-    } finally {
-      _$_SignUpControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   dynamic setConfirmPassword(String value) {
     final _$actionInfo = _$_SignUpControllerBaseActionController.startAction(
         name: '_SignUpControllerBase.setConfirmPassword');
     try {
       return super.setConfirmPassword(value);
-    } finally {
-      _$_SignUpControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void changePasswordVisibility() {
-    final _$actionInfo = _$_SignUpControllerBaseActionController.startAction(
-        name: '_SignUpControllerBase.changePasswordVisibility');
-    try {
-      return super.changePasswordVisibility();
     } finally {
       _$_SignUpControllerBaseActionController.endAction(_$actionInfo);
     }
@@ -203,10 +181,10 @@ mixin _$SignUpController on _SignUpControllerBase, Store {
     return '''
 user: ${user},
 email: ${email},
-password: ${password},
 confirmPassword: ${confirmPassword},
 isEmailValid: ${isEmailValid},
-showPassword: ${showPassword}
+showPassword: ${showPassword},
+userStatus: ${userStatus}
     ''';
   }
 }
