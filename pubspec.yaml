@@ -58,12 +58,18 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
 
 dev_dependencies:
+  flutter_launcher_icons: "^0.8.0"
   json_serializable: ^3.5.0
   modular_codegen: ^2.0.1
   mobx_codegen: ^1.1.2
   build_runner: ^1.10.1
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/newspaper.jpg"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
