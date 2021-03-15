@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_news_app/app/shared/components/custom_button_widgets.dart';
+import 'package:flutter_news_app/app/shared/components/custom_button_widget.dart';
 import 'package:flutter_news_app/app/shared/components/password_text_field/password_text_field_widget.dart';
 import 'package:flutter_news_app/app/shared/constants.dart';
 import 'package:flutter_svg/svg.dart';

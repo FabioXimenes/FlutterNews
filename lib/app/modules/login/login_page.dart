@@ -3,7 +3,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_news_app/app/shared/components/custom_button_widgets.dart';
+import 'package:flutter_news_app/app/shared/components/custom_button_widget.dart';
 import 'package:flutter_news_app/app/shared/constants.dart';
 import 'package:flutter_svg/svg.dart';
 import 'login_controller.dart';
@@ -25,7 +25,6 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(
-          // mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             SizedBox(height: 16),
             Container(
@@ -96,12 +95,70 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                 ],
               ),
             ),
-            SizedBox(height: 10),
-            Text(
-              'Forgot password?',
-              textAlign: TextAlign.end,
+            // SizedBox(height: 10),
+            Container(
+              height: 35,
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () => showModalBottomSheet(
+                    context: context,
+                    builder: (_) => Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Recover password',
+                              style: Theme.of(context).textTheme.headline4,
+                            ),
+                            SizedBox(height: 20),
+                            Form(
+                              key: controller.passwordResetEmailKey,
+                              child: TextFormField(
+                                validator: controller.validateEmail,
+                                controller:
+                                    controller.passwordResetEmailController,
+                                decoration: InputDecoration(
+                                  hintText: 'Email',
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(color: Colors.grey),
+                                  ),
+                                ),
+                                onChanged: controller.setEmail,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Align(
+                              alignment: Alignment.center,
+                              child: CustomButtonWidget(
+                                title: 'SEND EMAIL',
+                                onPressed: controller.handleRecoverPassword,
+                                isLoading:
+                                    controller.status == UserStatus.loading,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  child: Text(
+                    'Forgot password?',
+                    textAlign: TextAlign.end,
+                    style: Theme.of(context).textTheme.subtitle1,
+                  ),
+                ),
+              ),
             ),
-            SizedBox(height: 25),
+            SizedBox(height: 15),
             Observer(builder: (_) {
               return CustomButtonWidget(
                 title: 'Login',

@@ -126,6 +126,15 @@ mixin _$LoginController on _LoginControllerBase, Store {
         .run(() => super.handleSignInWithGoogle());
   }
 
+  final _$handleRecoverPasswordAsyncAction =
+      AsyncAction('_LoginControllerBase.handleRecoverPassword');
+
+  @override
+  Future<dynamic> handleRecoverPassword() {
+    return _$handleRecoverPasswordAsyncAction
+        .run(() => super.handleRecoverPassword());
+  }
+
   final _$_LoginControllerBaseActionController =
       ActionController(name: '_LoginControllerBase');
 

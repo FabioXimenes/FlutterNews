@@ -6,15 +6,17 @@ import 'package:flutter_news_app/app/shared/models/user_model.dart';
 import 'package:flutter_news_app/app/shared/repositories/user_repository.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:asuka/asuka.dart' as asuka;
 
 part 'login_controller.g.dart';
 
 @Injectable()
 class LoginController = _LoginControllerBase with _$LoginController;
 
-abstract class _LoginControllerBase with Store{
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
+abstract class _LoginControllerBase with Store {
+  final formKey = GlobalKey<FormState>();
+  final passwordResetEmailKey = GlobalKey<FormState>();
+  final passwordResetEmailController = TextEditingController();
   final UserRepository userAuth = Modular.get();
 
   @observable
@@ -73,6 +75,7 @@ abstract class _LoginControllerBase with Store{
         print(user.errorMessage);
         // showDialog(context: context, child: Text('Error in login'));
       } else {
+        status = UserStatus.success;
         Modular.to.pushReplacementNamed(AppRoutes.start);
       }
     }
@@ -88,6 +91,31 @@ abstract class _LoginControllerBase with Store{
       Modular.to.pushReplacementNamed(AppRoutes.start);
     }
   }
-}
 
-// Clica no login, espera pelo login, se retornar o user, então faz o login, se não apresenta uma msg de erro
+  @action
+  Future handleRecoverPassword() async {
+    if (passwordResetEmailKey.currentState.validate()) {
+      status = UserStatus.loading;
+      var wasSent =
+          await userAuth.recoverPassword(passwordResetEmailController.text);
+
+      if (wasSent) {
+        asuka.showSnackBar(
+          SnackBar(
+            content: Text('Email sent. Check your inbox!'),
+          ),
+        );
+        status = UserStatus.success;
+      } else {
+        asuka.showSnackBar(
+          SnackBar(
+            content: Text(
+              'Error while sending email. Check your email and try again later.',
+            ),
+          ),
+        );
+      }
+    }
+    status = UserStatus.stopped;
+  }
+}

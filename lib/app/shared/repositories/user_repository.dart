@@ -45,4 +45,14 @@ class UserRepository {
       return null;
     }
   }
+
+  Future<bool> recoverPassword(String email) async {
+    try {
+      await _auth.recoverPassword(email);
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
 }
