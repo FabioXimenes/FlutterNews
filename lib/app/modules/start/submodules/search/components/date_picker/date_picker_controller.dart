@@ -1,6 +1,7 @@
-import 'package:flutter_news_app/app/shared/stores/query_store.dart';
-import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:mobx/mobx.dart';
+
+import '../../../../../../shared/stores/query_store.dart';
 
 part 'date_picker_controller.g.dart';
 

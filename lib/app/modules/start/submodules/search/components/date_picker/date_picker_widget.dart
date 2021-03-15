@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_news_app/app/modules/start/submodules/search/components/date_picker/date_picker_controller.dart';
 import 'package:intl/intl.dart';
+
+import 'date_picker_controller.dart';
 
 class DatePickerWidget extends StatefulWidget {
   final String title;

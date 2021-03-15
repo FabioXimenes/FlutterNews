@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_news_app/app/shared/components/article_card_widget.dart';
-import 'package:flutter_news_app/app/shared/components/articles_list_view_widget.dart';
+
+import '../../../../shared/components/articles_list_view_widget.dart';
 import 'categories_controller.dart';
 
 class CategoriesPage extends StatefulWidget {

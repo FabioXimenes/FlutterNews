@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news_app/app/shared/constants/misc.dart';
-import 'package:flutter_news_app/app/shared/constants/routes.dart';
-import 'package:flutter_news_app/app/shared/models/auth_model.dart';
-import 'package:flutter_news_app/app/shared/models/user_model.dart';
-import 'package:flutter_news_app/app/shared/repositories/user_repository.dart';
+import '../../shared/constants/misc.dart';
+import '../../shared/constants/routes.dart';
+import '../../shared/models/auth_model.dart';
+import '../../shared/models/user_model.dart';
+import '../../shared/repositories/user_repository.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 

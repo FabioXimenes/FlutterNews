@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_news_app/app/shared/components/password_text_field/password_text_field_controller.dart';
+import 'password_text_field_controller.dart';
 
 class PasswordTextFieldWidget extends StatefulWidget {
   final String hintText;

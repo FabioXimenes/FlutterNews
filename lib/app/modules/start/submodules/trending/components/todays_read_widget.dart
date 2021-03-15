@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news_app/app/modules/start/submodules/trending/components/todays_read_card_widget.dart';
-import 'package:flutter_news_app/app/shared/models/article_model.dart';
+
+import '../../../../../shared/models/article_model.dart';
+import 'todays_read_card_widget.dart';
 
 class TodaysReadWidget extends StatelessWidget {
   final List<ArticleModel> articles;

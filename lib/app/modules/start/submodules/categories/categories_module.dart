@@ -1,6 +1,6 @@
-import 'categories_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import 'categories_controller.dart';
 import 'categories_page.dart';
 
 class CategoriesModule extends ChildModule {

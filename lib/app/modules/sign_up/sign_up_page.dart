@@ -2,11 +2,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_news_app/app/shared/components/custom_button_widget.dart';
-import 'package:flutter_news_app/app/shared/components/password_text_field/password_text_field_widget.dart';
-import 'package:flutter_news_app/app/shared/constants/misc.dart';
-import 'package:flutter_news_app/app/shared/helpers/validators.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../shared/components/custom_button_widget.dart';
+import '../../shared/components/password_text_field/password_text_field_widget.dart';
+import '../../shared/constants/misc.dart';
+import '../../shared/helpers/validators.dart';
 import 'sign_up_controller.dart';
 
 class SignUpPage extends StatefulWidget {

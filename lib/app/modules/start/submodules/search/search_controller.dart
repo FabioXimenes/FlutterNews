@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_masked_text/flutter_masked_text.dart';
-import 'package:flutter_news_app/app/shared/models/articles_response_model.dart';
-import 'package:flutter_news_app/app/shared/models/query_model.dart';
-import 'package:flutter_news_app/app/shared/repositories/article_repository.dart';
-import 'package:flutter_news_app/app/shared/stores/query_store.dart';
-import 'package:flutter_news_app/app/shared/stores/theme_store.dart';
-import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:mobx/mobx.dart';
+
+import '../../../../shared/models/articles_response_model.dart';
+import '../../../../shared/models/query_model.dart';
+import '../../../../shared/repositories/article_repository.dart';
+import '../../../../shared/stores/query_store.dart';
+import '../../../../shared/stores/theme_store.dart';
 
 part 'search_controller.g.dart';
 

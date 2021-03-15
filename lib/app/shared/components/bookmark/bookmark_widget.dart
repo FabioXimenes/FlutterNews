@@ -2,8 +2,9 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_news_app/app/shared/components/bookmark/bookmark_controller.dart';
-import 'package:flutter_news_app/app/shared/models/article_model.dart';
+
+import '../../models/article_model.dart';
+import 'bookmark_controller.dart';
 
 class BookmarkWidget extends StatefulWidget {
   final ArticleModel article;

@@ -1,6 +1,6 @@
-import 'bookmarks_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import 'bookmarks_controller.dart';
 import 'bookmarks_page.dart';
 
 class BookmarksModule extends ChildModule {

@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_news_app/app/shared/models/user_model.dart';
-import 'package:flutter_news_app/app/shared/models/auth_model.dart';
-import 'package:flutter_news_app/app/shared/services/interfaces/user_auth_interface.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+import '../models/auth_model.dart';
+import '../models/user_model.dart';
+import 'interfaces/user_auth_interface.dart';
 
 class UserFirebaseAuth implements IUserAuth {
   final FirebaseAuth _auth = FirebaseAuth.instance;

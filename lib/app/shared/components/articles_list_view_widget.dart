@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news_app/app/shared/components/article_card_widget.dart';
-import 'package:flutter_news_app/app/shared/models/article_model.dart';
+import 'article_card_widget.dart';
+import '../models/article_model.dart';
 
 class ArticlesListViewWidget extends StatelessWidget {
   final List<ArticleModel> articles;

@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_news_app/app/shared/constants/local_storage_keys.dart';
-import 'package:flutter_news_app/app/shared/services/interfaces/local_storage_interface.dart';
+import '../constants/local_storage_keys.dart';
+import '../services/interfaces/local_storage_interface.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 

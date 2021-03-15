@@ -1,5 +1,6 @@
-import 'package:flutter_news_app/app/shared/models/source_model.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import 'source_model.dart';
 
 part 'article_model.g.dart';
 

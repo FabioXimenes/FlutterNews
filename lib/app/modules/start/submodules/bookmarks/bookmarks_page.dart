@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_news_app/app/shared/components/articles_list_view_widget.dart';
-import 'package:flutter_news_app/app/shared/models/article_model.dart';
+
+import '../../../../shared/components/articles_list_view_widget.dart';
+import '../../../../shared/models/article_model.dart';
 import 'bookmarks_controller.dart';
 
 class BookmarksPage extends StatefulWidget {

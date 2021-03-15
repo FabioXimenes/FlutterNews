@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news_app/app/shared/constants/categories.dart';
-import 'package:flutter_news_app/app/shared/models/articles_response_model.dart';
-import 'package:flutter_news_app/app/shared/repositories/article_repository.dart';
-import 'package:flutter_news_app/app/shared/repositories/user_repository.dart';
-import 'package:flutter_news_app/app/shared/stores/theme_store.dart';
+import '../../../../shared/constants/categories.dart';
+import '../../../../shared/models/articles_response_model.dart';
+import '../../../../shared/repositories/article_repository.dart';
+import '../../../../shared/repositories/user_repository.dart';
+import '../../../../shared/stores/theme_store.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
