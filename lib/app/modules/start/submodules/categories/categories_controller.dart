@@ -45,8 +45,9 @@ abstract class _CategoriesControllerBase with Store {
 
     var result = await _articleRepository
         .getTopHeadlinesFromCategory(ARTICLE_CATEGORIES[categoryIndex]);
-    result.articles =
-        result.articles.where((e) => e.urlToImage != null).toList();
+    result.articles = result.articles
+        .where((e) => e.description != null && e.urlToImage != null)
+        .toList();
 
     currentArticlesResponse = result;
 
