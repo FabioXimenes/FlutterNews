@@ -11,7 +11,7 @@ part 'start_controller.g.dart';
 @Injectable()
 class StartController = _StartControllerBase with _$StartController;
 
-abstract class _StartControllerBase with Store {
+abstract class _StartControllerBase with Store implements Disposable {
   final UserRepository userRepository = Modular.get();
   final PageController pageController = PageController();
   final BookmarkStore bookmarkStore = Modular.get();
@@ -29,5 +29,10 @@ abstract class _StartControllerBase with Store {
   void handlePageChange(int index) {
     currentPage = index;
     pageController.jumpToPage(index);
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
   }
 }

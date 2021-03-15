@@ -14,7 +14,7 @@ part 'login_controller.g.dart';
 @Injectable()
 class LoginController = _LoginControllerBase with _$LoginController;
 
-abstract class _LoginControllerBase with Store {
+abstract class _LoginControllerBase with Store implements Disposable {
   final formKey = GlobalKey<FormState>();
   final passwordResetEmailKey = GlobalKey<FormState>();
   final passwordResetEmailController = TextEditingController();
@@ -90,5 +90,11 @@ abstract class _LoginControllerBase with Store {
       }
     }
     status = UserStatus.stopped;
+  }
+
+  @override
+  void dispose() {
+    passwordController.dispose();
+    passwordResetEmailController.dispose();
   }
 }

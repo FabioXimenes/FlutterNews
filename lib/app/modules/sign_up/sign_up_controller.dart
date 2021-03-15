@@ -12,7 +12,7 @@ part 'sign_up_controller.g.dart';
 @Injectable()
 class SignUpController = _SignUpControllerBase with _$SignUpController;
 
-abstract class _SignUpControllerBase with Store {
+abstract class _SignUpControllerBase with Store implements Disposable {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
@@ -47,5 +47,11 @@ abstract class _SignUpControllerBase with Store {
     } else {
       userStatus = UserStatus.stopped;
     }
+  }
+  
+  @override
+  void dispose() {
+    passwordController.dispose();
+    confirmPasswordController.dispose();
   }
 }

@@ -19,7 +19,7 @@ enum LoadingStatus {
   success,
 }
 
-abstract class _SearchControllerBase with Store {
+abstract class _SearchControllerBase with Store implements Disposable {
   final ArticleRepository _articleRepository = Modular.get();
   final QueryStore _queryStore = Modular.get();
   final ThemeStore themeStore = Modular.get();
@@ -85,5 +85,10 @@ abstract class _SearchControllerBase with Store {
       loadingStatus = LoadingStatus.waiting;
       articlesResponse = null;
     }
+  }
+
+  @override
+  void dispose() {
+    searchFieldController.dispose();
   }
 }

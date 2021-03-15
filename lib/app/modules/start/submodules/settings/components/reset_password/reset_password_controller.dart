@@ -20,7 +20,7 @@ enum PasswordStatus {
   error,
 }
 
-abstract class _ResetPasswordControllerBase with Store {
+abstract class _ResetPasswordControllerBase with Store implements Disposable {
   final ThemeStore themeStore = Modular.get();
   final formKey = GlobalKey<FormState>();
   final passwordController = TextEditingController();
@@ -45,5 +45,11 @@ abstract class _ResetPasswordControllerBase with Store {
     } else {
       passwordStatus = PasswordStatus.error;
     }
+  }
+
+  @override
+  void dispose() {
+    passwordController.dispose();
+    confirmPasswordController.dispose();
   }
 }
