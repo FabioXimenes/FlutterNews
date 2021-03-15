@@ -17,6 +17,7 @@ abstract class _LoginControllerBase with Store {
   final formKey = GlobalKey<FormState>();
   final passwordResetEmailKey = GlobalKey<FormState>();
   final passwordResetEmailController = TextEditingController();
+  final passwordController = TextEditingController();
   final UserRepository userAuth = Modular.get();
 
   @observable
@@ -29,46 +30,17 @@ abstract class _LoginControllerBase with Store {
   String email;
 
   @observable
-  String password;
-
-  @observable
   bool isEmailValid = false;
-
-  @observable
-  bool showPassword = false;
 
   @action
   void setEmail(String value) => email = value;
 
   @action
-  void setPassword(String value) => password = value;
-
-  @action
-  void changePasswordVisibility() => showPassword = !showPassword;
-
-  @action
-  String validateEmail(String value) {
-    String pattern =
-        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
-    if (!RegExp(pattern).hasMatch(value)) {
-      return 'Please, insert a valid email!';
-    }
-    return null;
-  }
-
-  @action
-  String validatePassword(String value) {
-    if (value.isEmpty) {
-      return 'Please, insert your password!';
-    }
-    return null;
-  }
-
-  @action
   Future handleLogin() async {
     if (formKey.currentState.validate()) {
       status = UserStatus.loading;
-      AuthModel auth = AuthModel(email: email, password: password);
+      AuthModel auth =
+          AuthModel(email: email, password: passwordController.text);
       user = await userAuth.signInWithEmailAndPassword(auth);
       if (user.error != null) {
         status = UserStatus.error;

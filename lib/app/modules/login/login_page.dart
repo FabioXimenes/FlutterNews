@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_news_app/app/shared/components/custom_button_widget.dart';
+import 'package:flutter_news_app/app/shared/components/password_text_field/password_text_field_widget.dart';
 import 'package:flutter_news_app/app/shared/constants.dart';
+import 'package:flutter_news_app/app/shared/helpers/validators.dart';
 import 'package:flutter_svg/svg.dart';
 import 'login_controller.dart';
 
@@ -50,7 +52,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
               child: Column(
                 children: [
                   TextFormField(
-                    validator: controller.validateEmail,
+                    validator: AppValidators.validateEmail,
                     decoration: InputDecoration(
                       hintText: 'Email',
                       border: OutlineInputBorder(
@@ -64,34 +66,11 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                     onChanged: controller.setEmail,
                   ),
                   SizedBox(height: 10),
-                  Observer(builder: (_) {
-                    return TextFormField(
-                      validator: controller.validatePassword,
-                      obscureText: !controller.showPassword,
-                      decoration: InputDecoration(
-                        suffixIcon: Observer(builder: (_) {
-                          return IconButton(
-                            icon: controller.showPassword
-                                ? Icon(Icons.visibility_off, color: Colors.grey)
-                                : Icon(
-                                    Icons.visibility,
-                                    color: Colors.grey,
-                                  ),
-                            onPressed: controller.changePasswordVisibility,
-                          );
-                        }),
-                        hintText: 'Password',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: Colors.grey),
-                        ),
-                      ),
-                      onChanged: controller.setPassword,
-                    );
-                  }),
+                  PasswordTextFieldWidget(
+                    hintText: 'Password',
+                    textFieldController: controller.passwordController,
+                    validator: AppValidators.validateEmptyPassword,
+                  )
                 ],
               ),
             ),
@@ -124,7 +103,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                               Form(
                                 key: controller.passwordResetEmailKey,
                                 child: TextFormField(
-                                  validator: controller.validateEmail,
+                                  validator: AppValidators.validateEmail,
                                   controller:
                                       controller.passwordResetEmailController,
                                   decoration: InputDecoration(
@@ -146,12 +125,14 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                               ),
                               Align(
                                 alignment: Alignment.center,
-                                child: CustomButtonWidget(
-                                  title: 'SEND EMAIL',
-                                  onPressed: controller.handleRecoverPassword,
-                                  isLoading:
-                                      controller.status == UserStatus.loading,
-                                ),
+                                child: Observer(builder: (_) {
+                                  return CustomButtonWidget(
+                                    title: 'SEND EMAIL',
+                                    onPressed: controller.handleRecoverPassword,
+                                    isLoading:
+                                        controller.status == UserStatus.loading,
+                                  );
+                                }),
                               )
                             ],
                           ),

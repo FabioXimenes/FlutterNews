@@ -14,6 +14,7 @@ class SignUpController = _SignUpControllerBase with _$SignUpController;
 abstract class _SignUpControllerBase with Store {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
   final UserRepository userAuth = Modular.get();
 
   @observable
@@ -23,50 +24,10 @@ abstract class _SignUpControllerBase with Store {
   String email;
 
   @observable
-  String confirmPassword;
-
-  @observable
-  bool isEmailValid = false;
-
-  @observable
-  bool showPassword = false;
-
-  @observable
   UserStatus userStatus = UserStatus.stopped;
 
   @action
   void setEmail(String value) => email = value;
-
-  @action
-  setConfirmPassword(String value) => confirmPassword = value;
-
-  @action
-  String validateEmail(String value) {
-    String pattern =
-        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
-    if (!RegExp(pattern).hasMatch(value)) {
-      return 'Please, insert a valid email!';
-    }
-    return null;
-  }
-
-  @action
-  String validatePassword(String value) {
-    String pattern =
-        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{6,}$';
-    if (!RegExp(pattern).hasMatch(value)) {
-      return 'The password must contain: \n \t * At least 6 characters \n \t * At least 1 upper case letter; \n \t * At least 1 lower case letter; \n \t * At least 1 number; \n \t * At least 1 special character;';
-    }
-    return null;
-  }
-
-  @action
-  String validateConfirmPassword(String value) {
-    if (value != passwordController.text) {
-      return 'The passwords do not match!';
-    }
-    return null;
-  }
 
   @action
   Future handleRegister() async {

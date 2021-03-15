@@ -52,18 +52,6 @@ mixin _$PasswordTextFieldController on _PasswordTextFieldControllerBase, Store {
   }
 
   @override
-  String validatePassword(String value) {
-    final _$actionInfo = _$_PasswordTextFieldControllerBaseActionController
-        .startAction(name: '_PasswordTextFieldControllerBase.validatePassword');
-    try {
-      return super.validatePassword(value);
-    } finally {
-      _$_PasswordTextFieldControllerBaseActionController
-          .endAction(_$actionInfo);
-    }
-  }
-
-  @override
   String toString() {
     return '''
 showPassword: ${showPassword}
