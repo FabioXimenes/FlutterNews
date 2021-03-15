@@ -103,52 +103,61 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                 child: TextButton(
                   onPressed: () => showModalBottomSheet(
                     context: context,
-                    builder: (_) => Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Recover password',
-                              style: Theme.of(context).textTheme.headline4,
-                            ),
-                            SizedBox(height: 20),
-                            Form(
-                              key: controller.passwordResetEmailKey,
-                              child: TextFormField(
-                                validator: controller.validateEmail,
-                                controller:
-                                    controller.passwordResetEmailController,
-                                decoration: InputDecoration(
-                                  hintText: 'Email',
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: BorderSide(color: Colors.grey),
-                                  ),
-                                ),
-                                onChanged: controller.setEmail,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Align(
-                              alignment: Alignment.center,
-                              child: CustomButtonWidget(
-                                title: 'SEND EMAIL',
-                                onPressed: controller.handleRecoverPassword,
-                                isLoading:
-                                    controller.status == UserStatus.loading,
-                              ),
-                            )
-                          ],
+                    builder: (context) {
+                      final bottom = MediaQuery.of(context).viewInsets.bottom;
+                      return Padding(
+                        padding: EdgeInsets.only(
+                          top: 16,
+                          left: 16,
+                          right: 16,
+                          bottom: 16 + bottom,
                         ),
-                      ),
-                    ),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Recover password',
+                                style: Theme.of(context).textTheme.headline4,
+                              ),
+                              SizedBox(height: 20),
+                              Form(
+                                key: controller.passwordResetEmailKey,
+                                child: TextFormField(
+                                  validator: controller.validateEmail,
+                                  controller:
+                                      controller.passwordResetEmailController,
+                                  decoration: InputDecoration(
+                                    hintText: 'Email',
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide:
+                                          BorderSide(color: Colors.grey),
+                                    ),
+                                  ),
+                                  onChanged: controller.setEmail,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Align(
+                                alignment: Alignment.center,
+                                child: CustomButtonWidget(
+                                  title: 'SEND EMAIL',
+                                  onPressed: controller.handleRecoverPassword,
+                                  isLoading:
+                                      controller.status == UserStatus.loading,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      );
+                    },
                   ),
                   child: Text(
                     'Forgot password?',
