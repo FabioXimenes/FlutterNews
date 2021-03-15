@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_news_app/app/shared/constants.dart';
+import 'package:flutter_news_app/app/shared/constants/news_api.dart';
 import 'package:flutter_news_app/app/shared/http/custom_dio.dart';
 import 'package:flutter_news_app/app/shared/models/articles_response_model.dart';
 import 'package:flutter_news_app/app/shared/models/query_model.dart';

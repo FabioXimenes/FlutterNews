@@ -1,3 +1,4 @@
+import 'shared/constants/routes.dart';
 import 'shared/stores/theme_store.dart';
 import 'shared/components/password_text_field/password_text_field_controller.dart';
 import 'shared/stores/bookmark_store.dart';
@@ -7,7 +8,6 @@ import 'package:flutter_news_app/app/modules/login/login_module.dart';
 import 'package:flutter_news_app/app/modules/sign_up/sign_up_module.dart';
 import 'package:flutter_news_app/app/modules/start/start_module.dart';
 import 'package:flutter_news_app/app/modules/start/submodules/trending/trending_module.dart';
-import 'package:flutter_news_app/app/shared/constants.dart';
 import 'package:flutter_news_app/app/shared/http/custom_dio.dart';
 import 'package:flutter_news_app/app/shared/repositories/article_repository.dart';
 import 'package:flutter_news_app/app/shared/repositories/user_repository.dart';

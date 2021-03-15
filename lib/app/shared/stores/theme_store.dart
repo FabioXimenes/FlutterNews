@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news_app/app/shared/constants.dart';
+import 'package:flutter_news_app/app/shared/constants/local_storage_keys.dart';
 import 'package:flutter_news_app/app/shared/services/shared_preferences_service.dart';
 import 'package:flutter_news_app/app/styles/themes.dart';
 import 'package:mobx/mobx.dart';
@@ -31,12 +31,14 @@ abstract class _ThemeStoreBase with Store {
 
   Future<void> saveThemePreferences() async {
     await _sharedPreferencesService.setValue<bool>(
-        AppStorage.themeMode, isDark);
+      AppLocalStorageKeys.themeMode,
+      isDark,
+    );
   }
 
   Future<void> loadTheme() async {
-    var _isDark =
-        await _sharedPreferencesService.getValue<bool>(AppStorage.themeMode);
+    var _isDark = await _sharedPreferencesService
+        .getValue<bool>(AppLocalStorageKeys.themeMode);
 
     themeMode = _isDark ? AppTheme.darkTheme : AppTheme.lightTheme;
   }

@@ -1,5 +1,4 @@
-import 'package:flutter_news_app/app/modules/start/submodules/settings/components/reset_password/reset_password_controller.dart';
-import 'package:flutter_news_app/app/shared/constants.dart';
+import 'package:flutter_news_app/app/shared/constants/routes.dart';
 import 'package:flutter_news_app/app/shared/services/interfaces/user_auth_interface.dart';
 import 'package:flutter_news_app/app/shared/stores/theme_store.dart';
 import 'package:mobx/mobx.dart';
@@ -13,7 +12,7 @@ class SettingsController = _SettingsControllerBase with _$SettingsController;
 abstract class _SettingsControllerBase with Store {
   final ThemeStore themeStore = Modular.get();
   final IUserAuth _userAuth = Modular.get();
-  
+
   @observable
   String signInMethod;
 

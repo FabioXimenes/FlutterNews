@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_news_app/app/shared/constants.dart';
+import 'package:flutter_news_app/app/shared/constants/misc.dart';
+import 'package:flutter_news_app/app/shared/constants/routes.dart';
 import 'package:flutter_news_app/app/shared/models/auth_model.dart';
 import 'package:flutter_news_app/app/shared/models/user_model.dart';
 import 'package:flutter_news_app/app/shared/repositories/user_repository.dart';

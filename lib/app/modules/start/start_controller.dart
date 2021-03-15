@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news_app/app/shared/constants.dart';
+import 'package:flutter_news_app/app/shared/constants/routes.dart';
 import 'package:flutter_news_app/app/shared/repositories/user_repository.dart';
 import 'package:flutter_news_app/app/shared/stores/bookmark_store.dart';
 import 'package:mobx/mobx.dart';
