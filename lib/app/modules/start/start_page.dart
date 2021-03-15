@@ -1,6 +1,4 @@
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'components/custom_bottom_navigation_bar_widget.dart';
 import 'submodules/bookmarks/bookmarks_module.dart';

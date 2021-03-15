@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../../../../shared/constants/categories.dart';
 import '../../../../shared/models/articles_response_model.dart';
 import '../../../../shared/repositories/article_repository.dart';
-import '../../../../shared/repositories/user_repository.dart';
 import '../../../../shared/stores/theme_store.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';

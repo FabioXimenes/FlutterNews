@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../shared/components/articles_list_view_widget.dart';
-import '../../../../styles/colors.dart';
 import 'components/date_picker/date_picker_widget.dart';
 import 'search_controller.dart';
 
