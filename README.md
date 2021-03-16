@@ -2,7 +2,7 @@
 
 ![Preview-Screens](https://github.com/FabioXimenes/FlutterNews/blob/master/screenshots.png)
 
-If you want to ttake a look on all screens of the app, they are [here](https://drive.google.com/drive/folders/1UCxfFbTSY_T_mFE2g1D9iFBh7_jmZrDu?usp=sharing)
+If you want to take a look on all screens of the app, they are [here](https://drive.google.com/drive/folders/1UCxfFbTSY_T_mFE2g1D9iFBh7_jmZrDu?usp=sharing)
 
 ## About this project
 
