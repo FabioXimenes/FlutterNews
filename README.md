@@ -1,5 +1,6 @@
 # FlutterNews
 
+![Preview-Screens](https://github.com/FabioXimenes/flutter_news_temp/blob/final_improvements/screenshots.png)
 
 ## About this project
 
@@ -7,7 +8,7 @@ Follow the latest news, see news in your favorite category, do a more specific s
 
 ## Observations
 
-- Ios not working because I do not have a mac to make the firebase integration. I plan to add this feature when I have the opportunity!
+- Ios is not working because I do not have a mac to make the firebase integration. I plan to add this feature when I have the opportunity!
 
 ## Functionalities
 
