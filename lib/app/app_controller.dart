@@ -1,4 +1,4 @@
-import 'package:flutter_news_app/app/shared/stores/theme_store.dart';
+import 'shared/stores/theme_store.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 

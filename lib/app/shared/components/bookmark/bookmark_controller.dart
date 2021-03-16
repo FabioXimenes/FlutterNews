@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_news_app/app/shared/models/article_model.dart';
-import 'package:flutter_news_app/app/shared/stores/bookmark_store.dart';
-import 'package:mobx/mobx.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:asuka/asuka.dart' as asuka;
+import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:mobx/mobx.dart';
+
+import '../../models/article_model.dart';
+import '../../stores/bookmark_store.dart';
 
 part 'bookmark_controller.g.dart';
 

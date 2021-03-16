@@ -1,8 +1,7 @@
-import 'package:flutter_news_app/app/shared/components/bookmark/bookmark_controller.dart';
-
-import 'start_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../shared/components/bookmark/bookmark_controller.dart';
+import 'start_controller.dart';
 import 'start_page.dart';
 
 class StartModule extends ChildModule {

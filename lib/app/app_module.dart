@@ -1,24 +1,24 @@
-import 'shared/stores/theme_store.dart';
-import 'shared/components/password_text_field/password_text_field_controller.dart';
-import 'shared/stores/bookmark_store.dart';
-import 'shared/components/bookmark/bookmark_controller.dart';
-import 'shared/stores/query_store.dart';
-import 'package:flutter_news_app/app/modules/login/login_module.dart';
-import 'package:flutter_news_app/app/modules/sign_up/sign_up_module.dart';
-import 'package:flutter_news_app/app/modules/start/start_module.dart';
-import 'package:flutter_news_app/app/modules/start/submodules/trending/trending_module.dart';
-import 'package:flutter_news_app/app/shared/constants.dart';
-import 'package:flutter_news_app/app/shared/http/custom_dio.dart';
-import 'package:flutter_news_app/app/shared/repositories/article_repository.dart';
-import 'package:flutter_news_app/app/shared/repositories/user_repository.dart';
-import 'package:flutter_news_app/app/shared/services/user_firebase_auth.dart';
-import 'package:flutter_news_app/app/splash/splash_page.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import 'app_controller.dart';
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_news_app/app/app_widget.dart';
-import 'package:flutter_news_app/app/shared/services/shared_preferences_service.dart';
+import 'app_widget.dart';
+import 'modules/login/login_module.dart';
+import 'modules/sign_up/sign_up_module.dart';
+import 'modules/start/start_module.dart';
+import 'modules/start/submodules/trending/trending_module.dart';
+import 'shared/components/bookmark/bookmark_controller.dart';
+import 'shared/components/password_text_field/password_text_field_controller.dart';
+import 'shared/constants/routes.dart';
+import 'shared/http/custom_dio.dart';
+import 'shared/repositories/article_repository.dart';
+import 'shared/repositories/user_repository.dart';
+import 'shared/services/shared_preferences_service.dart';
+import 'shared/services/user_firebase_auth.dart';
+import 'shared/stores/bookmark_store.dart';
+import 'shared/stores/query_store.dart';
+import 'shared/stores/theme_store.dart';
+import 'splash/splash_page.dart';
 
 class AppModule extends MainModule {
   @override

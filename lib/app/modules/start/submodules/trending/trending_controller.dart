@@ -1,8 +1,8 @@
-import 'package:flutter_news_app/app/shared/models/article_model.dart';
-import 'package:flutter_news_app/app/shared/models/articles_response_model.dart';
-import 'package:flutter_news_app/app/shared/repositories/article_repository.dart';
-import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:mobx/mobx.dart';
+
+import '../../../../shared/models/articles_response_model.dart';
+import '../../../../shared/repositories/article_repository.dart';
 
 part 'trending_controller.g.dart';
 
@@ -18,8 +18,9 @@ abstract class _TrendingControllerBase with Store {
   @action
   getTopHeadlineArticles() async {
     var result = await articleRepository.getTopHeadlines();
-    result.articles =
-        result.articles.where((e) => e.urlToImage != null).toList();
+    result.articles = result.articles
+        .where((e) => e.description != null && e.urlToImage != null)
+        .toList();
 
     articlesResponse = result;
   }

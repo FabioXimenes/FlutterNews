@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_news_app/app/shared/models/user_model.dart';
-import 'package:flutter_news_app/app/shared/models/auth_model.dart';
-import 'package:flutter_news_app/app/shared/services/interfaces/user_auth_interface.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+import '../models/auth_model.dart';
+import '../models/user_model.dart';
+import 'interfaces/user_auth_interface.dart';
 
 class UserFirebaseAuth implements IUserAuth {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -74,14 +74,17 @@ class UserFirebaseAuth implements IUserAuth {
   }
 
   @override
-  Future resetPassword(String newPassword) async {
+  Future resetPassword(String newPassword) {
     var user = _auth.currentUser;
 
-    user
-        .updatePassword(newPassword)
-        .then((value) => null)
-        .catchError((error) {
-          // TODO - IF USER HAS NOT RECENTLY SIGNED IN, THEN REAUTHENTICATE USER
-        });
+    user.updatePassword(newPassword).then((value) => null).catchError((error) {
+      // TODO - IF USER HAS NOT RECENTLY SIGNED IN, THEN REAUTHENTICATE USER
+    });
+  }
+
+  @override
+  Future recoverPassword(String email) async {
+    await _auth.sendPasswordResetEmail(email: email);
+    return true;
   }
 }

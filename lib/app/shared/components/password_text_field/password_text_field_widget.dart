@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_news_app/app/shared/components/password_text_field/password_text_field_controller.dart';
+import 'password_text_field_controller.dart';
 
 class PasswordTextFieldWidget extends StatefulWidget {
   final String hintText;
   final TextEditingController textFieldController;
+  final Function(String value) validator;
 
   const PasswordTextFieldWidget({
     Key key,
     @required this.hintText,
     @required this.textFieldController,
+    @required this.validator,
   }) : super(key: key);
 
   @override
@@ -25,7 +27,7 @@ class _PasswordTextFieldWidgetState
     return Observer(builder: (_) {
       return TextFormField(
         controller: widget.textFieldController,
-        validator: controller.validatePassword,
+        validator: widget.validator,
         obscureText: !controller.showPassword,
         decoration: InputDecoration(
           suffixIcon: Observer(builder: (_) {

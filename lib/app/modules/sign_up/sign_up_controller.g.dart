@@ -49,52 +49,6 @@ mixin _$SignUpController on _SignUpControllerBase, Store {
     });
   }
 
-  final _$confirmPasswordAtom =
-      Atom(name: '_SignUpControllerBase.confirmPassword');
-
-  @override
-  String get confirmPassword {
-    _$confirmPasswordAtom.reportRead();
-    return super.confirmPassword;
-  }
-
-  @override
-  set confirmPassword(String value) {
-    _$confirmPasswordAtom.reportWrite(value, super.confirmPassword, () {
-      super.confirmPassword = value;
-    });
-  }
-
-  final _$isEmailValidAtom = Atom(name: '_SignUpControllerBase.isEmailValid');
-
-  @override
-  bool get isEmailValid {
-    _$isEmailValidAtom.reportRead();
-    return super.isEmailValid;
-  }
-
-  @override
-  set isEmailValid(bool value) {
-    _$isEmailValidAtom.reportWrite(value, super.isEmailValid, () {
-      super.isEmailValid = value;
-    });
-  }
-
-  final _$showPasswordAtom = Atom(name: '_SignUpControllerBase.showPassword');
-
-  @override
-  bool get showPassword {
-    _$showPasswordAtom.reportRead();
-    return super.showPassword;
-  }
-
-  @override
-  set showPassword(bool value) {
-    _$showPasswordAtom.reportWrite(value, super.showPassword, () {
-      super.showPassword = value;
-    });
-  }
-
   final _$userStatusAtom = Atom(name: '_SignUpControllerBase.userStatus');
 
   @override
@@ -133,57 +87,10 @@ mixin _$SignUpController on _SignUpControllerBase, Store {
   }
 
   @override
-  dynamic setConfirmPassword(String value) {
-    final _$actionInfo = _$_SignUpControllerBaseActionController.startAction(
-        name: '_SignUpControllerBase.setConfirmPassword');
-    try {
-      return super.setConfirmPassword(value);
-    } finally {
-      _$_SignUpControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  String validateEmail(String value) {
-    final _$actionInfo = _$_SignUpControllerBaseActionController.startAction(
-        name: '_SignUpControllerBase.validateEmail');
-    try {
-      return super.validateEmail(value);
-    } finally {
-      _$_SignUpControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  String validatePassword(String value) {
-    final _$actionInfo = _$_SignUpControllerBaseActionController.startAction(
-        name: '_SignUpControllerBase.validatePassword');
-    try {
-      return super.validatePassword(value);
-    } finally {
-      _$_SignUpControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  String validateConfirmPassword(String value) {
-    final _$actionInfo = _$_SignUpControllerBaseActionController.startAction(
-        name: '_SignUpControllerBase.validateConfirmPassword');
-    try {
-      return super.validateConfirmPassword(value);
-    } finally {
-      _$_SignUpControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   String toString() {
     return '''
 user: ${user},
 email: ${email},
-confirmPassword: ${confirmPassword},
-isEmailValid: ${isEmailValid},
-showPassword: ${showPassword},
 userStatus: ${userStatus}
     ''';
   }

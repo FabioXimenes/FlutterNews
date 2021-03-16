@@ -2,10 +2,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_news_app/app/shared/components/custom_button_widgets.dart';
-import 'package:flutter_news_app/app/shared/components/password_text_field/password_text_field_widget.dart';
-import 'package:flutter_news_app/app/shared/constants.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../shared/components/custom_button_widget.dart';
+import '../../shared/components/password_text_field/password_text_field_widget.dart';
+import '../../shared/constants/misc.dart';
+import '../../shared/helpers/validators.dart';
 import 'sign_up_controller.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -69,7 +71,7 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
               child: Column(
                 children: [
                   TextFormField(
-                    validator: controller.validateEmail,
+                    validator: AppValidators.validateEmail,
                     decoration: InputDecoration(
                       // prefixIcon: Icon(Icons.mail),
                       hintText: 'Email',
@@ -87,22 +89,16 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpController> {
                   PasswordTextFieldWidget(
                     hintText: 'Password',
                     textFieldController: controller.passwordController,
+                    validator: AppValidators.validateNewPassword,
                   ),
                   SizedBox(height: 10),
-                  TextFormField(
-                    validator: controller.validateConfirmPassword,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      hintText: 'Confirm password',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.grey),
-                      ),
+                  PasswordTextFieldWidget(
+                    hintText: 'Confirm password',
+                    textFieldController: controller.confirmPasswordController,
+                    validator: (value) => AppValidators.validateConfirmPassword(
+                      controller.passwordController.text,
+                      value,
                     ),
-                    onChanged: controller.setConfirmPassword,
                   ),
                 ],
               ),

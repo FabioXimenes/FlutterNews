@@ -25,10 +25,10 @@ class CustomButtonWidget extends StatelessWidget {
               )
             : Text(
                 title,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline5
-                    .copyWith(fontSize: 16),
+                style: Theme.of(context).textTheme.headline5.copyWith(
+                      fontSize: 16,
+                      color: Colors.white,
+                    ),
               ),
       ),
     );

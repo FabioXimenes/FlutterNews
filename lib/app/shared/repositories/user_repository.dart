@@ -1,7 +1,8 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_news_app/app/shared/models/auth_model.dart';
-import 'package:flutter_news_app/app/shared/models/user_model.dart';
-import 'package:flutter_news_app/app/shared/services/interfaces/user_auth_interface.dart';
+
+import '../models/auth_model.dart';
+import '../models/user_model.dart';
+import '../services/interfaces/user_auth_interface.dart';
 
 class UserRepository {
   final IUserAuth _auth = Modular.get();
@@ -43,6 +44,16 @@ class UserRepository {
     } catch (e) {
       print(e);
       return null;
+    }
+  }
+
+  Future<bool> recoverPassword(String email) async {
+    try {
+      await _auth.recoverPassword(email);
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
     }
   }
 }

@@ -1,6 +1,6 @@
-import 'trending_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import 'trending_controller.dart';
 import 'trending_page.dart';
 
 class TrendingModule extends ChildModule {

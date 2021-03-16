@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_news_app/app/modules/start/submodules/settings/components/config_item_widget.dart';
-import 'package:flutter_news_app/app/modules/start/submodules/settings/components/reset_password/reset_password_widget.dart';
 import 'package:flutter_svg/svg.dart';
+
+import 'components/config_item_widget.dart';
+import 'components/reset_password/reset_password_widget.dart';
 import 'settings_controller.dart';
 
 class SettingsPage extends StatefulWidget {

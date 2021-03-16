@@ -1,10 +1,11 @@
+import 'package:asuka/asuka.dart' as asuka;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_news_app/app/shared/services/interfaces/user_auth_interface.dart';
-import 'package:flutter_news_app/app/shared/stores/theme_store.dart';
-import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:asuka/asuka.dart' as asuka;
+import 'package:mobx/mobx.dart';
+
+import '../../../../../../shared/services/interfaces/user_auth_interface.dart';
+import '../../../../../../shared/stores/theme_store.dart';
 
 part 'reset_password_controller.g.dart';
 
@@ -19,7 +20,7 @@ enum PasswordStatus {
   error,
 }
 
-abstract class _ResetPasswordControllerBase with Store {
+abstract class _ResetPasswordControllerBase with Store implements Disposable {
   final ThemeStore themeStore = Modular.get();
   final formKey = GlobalKey<FormState>();
   final passwordController = TextEditingController();
@@ -44,5 +45,11 @@ abstract class _ResetPasswordControllerBase with Store {
     } else {
       passwordStatus = PasswordStatus.error;
     }
+  }
+
+  @override
+  void dispose() {
+    passwordController.dispose();
+    confirmPasswordController.dispose();
   }
 }

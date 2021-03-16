@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_news_app/app/shared/models/article_model.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import 'article_model.dart';
 
 part 'articles_response_model.g.dart';
 
