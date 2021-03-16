@@ -2,17 +2,20 @@
 
 ![Preview-Screens](https://github.com/FabioXimenes/flutter_news_temp/blob/final_improvements/screenshots.png)
 
+If you want to ttake a look on all screens of the app, they are [here](https://drive.google.com/drive/folders/1UCxfFbTSY_T_mFE2g1D9iFBh7_jmZrDu?usp=sharing)
+
 ## About this project
 
-Follow the latest news, see news in your favorite category, do a more specific search or even save news to read when you have time!
+Follow the latest news, see news in your favorite category, do a more specific search or even save news to read when you have time! The app was built using [Mobx](https://github.com/mobxjs/mobx.dart) for state management and [Flutter Modular](https://github.com/Flutterando/modular) for project structure. Data from the [NewsAPI](https://newsapi.org/).
 
 ## Observations
 
 - Ios is not working because I do not have a mac to make the firebase integration. I plan to add this feature when I have the opportunity!
+- The app shows the title and a brief description of each article, and redirects to the url of the news to see the full article.
 
 ## Functionalities
 
-- Login and Sign Up with Firebase
+- Login and Sign Up with Firebase (with email and password or with google)
 
 - Recover password with Firebase
 
@@ -55,4 +58,23 @@ Follow the latest news, see news in your favorite category, do a more specific s
 
 
 ## Getting Started
-Soon
+
+**Cloning this repository**
+```
+$ git clone https://github.com/FabioXimenes/FlutterNews
+$ cd FlutterNews
+```
+**Installing dependencies**
+```
+flutter pub get
+```
+
+**Go to [NewsAPI](https://newsapi.org/register), register and get an API Key. Then create a .env file at the project root and paste your API Key in an API_KEY variable**
+```
+API_KEY=<YOUR_API_KEY>
+```
+
+**With all dependencies installed and API Key set you can run the app**
+```
+flutter run
+```
