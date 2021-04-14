@@ -6,7 +6,7 @@ If you want to take a look on all screens of the app, they are [here](https://dr
 
 ## About this project
 
-Follow the latest news, see news in your favorite category, do a more specific search or even save news to read when you have time! The app was built using [Mobx](https://github.com/mobxjs/mobx.dart) for state management and [Flutter Modular](https://github.com/Flutterando/modular) for project structure. Data from the [NewsAPI](https://newsapi.org/).
+Follow the latest news, see news in your favorite category, do a more specific search or even save news to read when you have time! The app was built using [Mobx](https://github.com/mobxjs/mobx.dart) for state management and [Flutter Modular](https://github.com/Flutterando/modular) for dependency injection. Data from the [NewsAPI](https://newsapi.org/).
 
 ## Observations
 
